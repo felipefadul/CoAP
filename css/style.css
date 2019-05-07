@@ -94,10 +94,10 @@
 
 	header h2
 	{
-		letter-spacing: -2px;
+		letter-spacing: 1px;
 		text-transform: uppercase;
 		font-weight: 900;
-		font-size: 2em;
+		font-size: 1.5em;
 		color: #323338;
 	}
 
@@ -546,6 +546,7 @@ ul.style1 li {
 	display: inline-block;
 	padding: 1em 0em;
 	border-top: 1px solid #E6E6E6;
+	width: 100%;
 	line-height: 160%;
 }
 
@@ -557,15 +558,19 @@ ul.style1 span
 ul.style1 a {
 	text-decoration: none;
 	color: #525252;
+	font-weight: 300;
+	font-size: 1.014em;
 }
 
 ul.style1 a:hover {
 	text-decoration: underline;
+	font-weight: 390;
+	font-size: 1.15em;
 }
 
 ul.style1 .first {
 	border-top: none;
-	padding-top: 0px;
+	padding-top: 10px;
 }
 
 /** LIST STYLE 3 */
@@ -591,7 +596,7 @@ ul.style3 a:hover {
 	text-decoration: underline;
 }
 
-ul.style3 .date {
+ul.style3 .linkButton {
 	display: inline-block;
 	margin: 0px 0px 20px 0px;
 	padding: 1em 1em;
@@ -605,15 +610,16 @@ ul.style3 .date {
 	color: #FFFFFF;
 }
 
-ul.style3 .date b {
+ul.style3 .linkButton b {
 }
 
-ul.style3 .date a {
+ul.style3 .linkButton a {
 	color: #FFFFFF;
 }
 
-ul.style3 .date a:hover {
+ul.style3 .limkButton a:hover {
 	text-decoration: none;
+	text-decoration: underline; 
 }
 
 ul.style3 .first {
@@ -695,16 +701,23 @@ ul.style3 .first {
 	#content header h2
 	{
 		line-height: 1.2em;
-		font-size: 3em;
+		font-size: 2em;
 	}
 
 	#content
 	{
+		color: #1f2023;
+		text-align: justify;
+		font-weight: 370;
+		font-size: 1.05em;
 	}
 	
 	#footer
 	{
-		padding: 5em 0em;
+		text-align: justify;
+		font-weight: 400;
+		font-size: 1.05em;
+		padding: 3em 0em;
 	}
 
 

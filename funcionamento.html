@@ -69,13 +69,12 @@
 								<h2>2) Funcionamento do CoAP</h2>
 							</header>
 							<ul class="style1">
-								<li class="first"><span class="fa fa-check"></span><a href="#">2.1 Modelo e fluxo de mensagens</a></li>
-								<li><span class="fa fa-check"></span><a href="#">2.2 Intermediários e Cache</a></li>
-								<li><span class="fa fa-check"></span><a href="#">2.3 Formato da mensagem</a></li>
-								<li><span class="fa fa-check"></span><a href="#">2.4 Protocolo de segurança para CoAP</a></li>
-								<li><span class="fa fa-check"></span><a href="#">2.5 Correlação de mensagens e desduplicação</a></li>
-								<li><span class="fa fa-check"></span><a href="#">2.6 Controle de congestionamento</a></li>
-								<li><span class="fa fa-check"></span><a href="#">2.7 Protocolo de segurança para CoAP</a></li>
+								<li class="first"><span class="fa fa-check"></span><a href="#2.1">2.1 Modelo e fluxo de mensagens</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.2">2.2 Intermediários e Cache</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.3">2.3 Formato da mensagem</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.4">2.4 Correlação de mensagens e desduplicação</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.5">2.5 Controle de congestionamento</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.6">2.6 Protocolo de segurança para CoAP</a></li>
 							</ul>
 						</section>
 					</div>
@@ -84,7 +83,7 @@
 					<div class="9u skel-cell-important">
 						<section id="content">
 							<header>
-								<h2>2.1 Modelo e fluxo de mensagens</h2>
+								<h2><a name="2.1">2.1 Modelo e fluxo de mensagens</a></h2>
 							</header>
 							<p>O modelo de mensagens do CoAP é baseado na troca de mensagens de ponta a ponta através do
 								protocolo UDP. São 4 os
@@ -93,7 +92,9 @@
 								<strong>Confirmável (CON) :</strong> Mensagens que precisam ser confirmadas. Quando
 								nenhum pacote é
 								perdido, cada mensagem desse tipo
-								resulta em uma mensagem do tipo acknowledgement ou do tipo reset.
+								resulta em uma mensagem do tipo <italic>
+									acknowledgement
+								</italic> ou do tipo reset.
 							</li>
 							<br>
 							<li>
@@ -108,11 +109,11 @@
 								<strong>Acknowledgement (ACK) :</strong> Confirma que uma mensagem confirmável chegou.
 								Essa
 								mensagem não indica o sucesso ou a
-								falha de um <i>request</i> encapsulado na mensagem confirmável.
+								falha de um <italic>request</italic> encapsulado na mensagem confirmável.
 							</li>
 							<br>
 							<li>
-								<strong><i>Reset</i> (RST) :</strong> Indica que uma mensagem específica (Confirmável ou
+								<strong><italic>Reset</italic> (RST) :</strong> Indica que uma mensagem específica (Confirmável ou
 								Não confirmável)
 								foi recebida, entretanto
 								por falta de contexto, a mensagem não pôde ser processada. Essa condição é normalmente
@@ -130,7 +131,7 @@
 							<p>
 								Quando um destinatário não é capaz de processar uma mensagem como confirmável, ele
 								responde com uma mensagem
-								<i>Reset</i> (RST) no lugar de <i>acknowledgement</i> (ACK).
+								<italic>Reset</italic> (RST) no lugar de <italic>acknowledgement</italic> (ACK).
 							</p>
 							<p>
 								Uma mensagem que não requer transmissão confiável (por exemplo, uma única medida fora de
@@ -139,67 +140,67 @@
 								reconhecidas, mas ainda têm um
 								ID de mensagem para detecção duplicada. Quando um destinatário não for capaz de
 								processar uma mensagem não
-								confirmável, pode-se responder com uma mensagem de <i>Reset</i> (RST). CoAP_figura2.png
+								confirmável, pode-se responder com uma mensagem de <italic>Reset</italic> (RST). CoAP_figura2.png
 							</p>
 							<p>
 								Como o CoAP é executado sobre UDP, que é um protocolo não confiável, também suporta o
 								uso dos endereços
-								<i>multicast</i> IP de destino, permitindo solicitações <i>multicast</i> CoAP, como
+								<italic>multicast</italic> IP de destino, permitindo solicitações <italic>multicast</italic> CoAP, como
 								precaução para
 								evitar o congestionamento
 								da resposta.
 							</p>
 
 							<header>
-								<h2>2.2 Intermediários e <i>Cache</i></h2>
+								<h2><a name="2.2">2.2 Intermediários e <italic>Cache</italic></a></h2>
 							</header>
 							<p>
 								O protocolo suporta o armazenamento de respostas com a finalidade de atender de forma
-								eficiente aos pedidos. O armazenamento em <i>cache</i> simples é ativado usando
+								eficiente aos pedidos. O armazenamento em <italic>cache</italic> simples é ativado usando
 								informações de
-								atualização e validade transportadas com respostas CoAP. Um <i>cache</i> pode ser
+								atualização e validade transportadas com respostas CoAP. Um <italic>cache</italic> pode ser
 								localizado em
 								um nó (ponto final) ou um intermediário.
 							</p>
 
 							<p>
-								<i>Proxying</i> é útil em redes limitadas por diversos motivos, inclusive por limitar o
+								<italic>Proxying</italic> é útil em redes limitadas por diversos motivos, inclusive por limitar o
 								tráfego
-								na rede, melhorar a performance, acessar recursos de "<i>sleeping devices</i>", e por
+								na rede, melhorar a performance, acessar recursos de "<italic>sleeping devices</italic>", e por
 								motivos
-								de segurança. O <i>proxy</i> de request de um nó na extremidade é suportado no
+								de segurança. O <italic>proxy</italic> de request de um nó na extremidade é suportado no
 								protocolo.
-								Quando usado um <i>proxy</i>, a URI do "recurso a ser solicitado será incluído na
+								Quando usado um <italic>proxy</italic>, a URI do "recurso a ser solicitado será incluído na
 								solicitação,
-								enquanto o endereço IP de destino é setado como o endereço de IP do <i>proxy</i>.
+								enquanto o endereço IP de destino é setado como o endereço de IP do <italic>proxy</italic>.
 							</p>
 							<p>
 								Como o CoAP foi projetado de acordo com a arquitetura REST, e por isso exibe
 								funcionalidades similares ao protocolo HTTP, é possível traçar um paralelo entre os dois
 								protocolos, mapeando de CoAP para HTTP e vice-versa. Tal mapeamento pode ser usado para
 								realizar a interface HTTP REST usando CoAP ou para converter entre HTTP e CoAP. Essa
-								conversão pode ser realizada por um <i>proxy</i> de protocolo cruzado
-								("<i>cross-proxy</i>"), o qual
+								conversão pode ser realizada por um <italic>proxy</italic> de protocolo cruzado
+								("<italic>cross-proxy</italic>"), o qual
 								converte o método ou código de resposta, tipo de mídia e opções para o recurso HTTP
 								correspondente.
 							</p>
 
 							<header>
-								<h2>2.3 Formato da mensagem</h2>
+								<h2><a name="2.3">2.3 Formato da mensagem</a></h2>
 							</header>
 							<p>
 								CoAP é baseado na troca de mensagens compactadas que, por padrão, são transportadas pelo
 								UDP (ou seja, cada mensagem do CoAP ocupa uma seção de dados de um datagrama UDP).
 
 								As mensagens do CoAP são codificadas em um simples formato binário. O formato da
-								mensagem começa com um cabeçalho de tamanho fixo de 4 <i>bytes</i>. Seguido por um valor
+								mensagem começa com um cabeçalho de tamanho fixo de 4 <italic>bytes</italic>. Seguido por um valor
 								de
-								<i>token</i> de comprimento variável, que pode ter entre 0 a 8 <i>bytes</i> de
+								<italic>token</italic> de comprimento variável, que pode ter entre 0 a 8 <italic>bytes</italic> de
 								comprimento.
-								Seguido pelo valor de <i>token</i>, vem uma sequência de zeros ou mais.
+								Seguido pelo valor de <italic>token</italic>, vem uma sequência de zeros ou mais.
 							</p>
 							<li>
-								<strong>Versão (Ver) :</strong> <i>unsigned</i> int de 2 bits. Indica o número de versão
+								<strong>Versão (Ver) :</strong> <italic>unsigned</italic> int de 2 bits. Indica o número de versão
 								do CoAP.
 								Implementações dessa especificação DEVEM estabelecer esse campo em 1 (01 binário).
 								Outros valores são reservados para versões futuras. Mensagens com número de versão
@@ -207,7 +208,7 @@
 							</li>
 							<br>
 							<li>
-								<strong>Tipo (T) :</strong> <i>unsigned</i> int de 2 bits. Indica se a mensagem é de um
+								<strong>Tipo (T) :</strong> <italic>unsigned</italic> int de 2 bits. Indica se a mensagem é de um
 								dos tipos:
 								<br>
 								<br>&emsp;- Confirmável (0)
@@ -217,24 +218,24 @@
 							</li>
 							<br>
 							<li>
-								<strong>Comprimento de <i>Token</i> (TKL) :</strong> <i>unsigned int</i> de 4
-								<i>bits</i>. Indica o tamanho da variável do
-								<i>token</i>, que pode variar de 0 a 8 <i>bytes</i>. Comprimentos de 9 a 15 são
+								<strong>Comprimento de <italic>Token</italic> (TKL) :</strong> <italic>unsigned int</italic> de 4
+								<italic>bits</italic>. Indica o tamanho da variável do
+								<italic>token</italic>, que pode variar de 0 a 8 <italic>bytes</italic>. Comprimentos de 9 a 15 são
 								reservados e não devem
 								ser enviados. É um campo sempre gerado pelo cliente CoAP.
 							</li>
 							<br>
 							<li>
-								<strong>Código (Code) :</strong> unsigned int de 8 <i>bits</i>, dividido em 3
-								<i>bits</i> para classe (<i>bits</i> mais
-								significantes) e 5 <i>bits</i> para detalhes (<i>bits</i> menos significantes).
+								<strong>Código (Code) :</strong> unsigned int de 8 <italic>bits</italic>, dividido em 3
+								<italic>bits</italic> para classe (<italic>bits</italic> mais
+								significantes) e 5 <italic>bits</italic> para detalhes (<italic>bits</italic> menos significantes).
 								A classe pode indicar uma requisição (0), resposta de sucesso (2), resposta de erro do
 								cliente (4), ou resposta de erro do servidor (5). (Todas as outras classes são
 								reservadas.) Em casos especiais no código 0.00 indica uma mensagem vazia.
 							</li>
 							<br>
 							<li>
-								<strong>ID da mensagem :</strong> unsigned int de 16 <i>bits</i>. Usada para detectar
+								<strong>ID da mensagem :</strong> unsigned int de 16 <italic>bits</italic>. Usada para detectar
 								mensagens duplicadas e
 								equiparar mensagens do tipo de Confirmação/Reset para mensagens do tipo
 								Confirmável/Não-confirmável.
@@ -243,7 +244,7 @@
 							<br>
 
 							<header>
-								<h2>2.5 Correlação de mensagens e desduplicação</h2>
+								<h2><a name="2.4">2.4 Correlação de mensagens e desduplicação</a></h2>
 							</header>
 							<p>
 								Uma mensagem ack ou rst é relacionada com uma mensagem con e non através de uma mensagem
@@ -259,7 +260,7 @@
 							</p>
 
 							<header>
-								<h2>2.6 Controle de congestionamento</h2>
+								<h2><a name="2.5">2.5 Controle de congestionamento</a></h2>
 							</header>
 							<p>
 								Com o intuito de não causar congestionamento, clientes (incluindo proxies) DEVEM
@@ -275,7 +276,7 @@
 							</p>
 
 							<header>
-								<h2>2.7 Protocolo de segurança para CoAP</h2>
+								<h2><a name="2.6">2.6 Protocolo de segurança para CoAP</a></h2>
 							</header>
 							<p>
 								CoAP usa Datagram Transport Layer Security (DTLS) para segurança. O protocolo DTLS de
@@ -365,7 +366,7 @@
 								<p>Este trabalho foi desenvolvido por alunos de graduação do curso de Engenharia
 									Eletrônica e de Computação da Universidade Federal do Rio de Janeiro para a
 									disciplina Redes de Computadores I durante o período de 2019.1. Compreende um estudo
-									sobre o protocolo <i>CoAP</i>, apresentando suas principais características,
+									sobre o protocolo CoAP, apresentando suas principais características,
 									funcionamento e aplicações.</p>
 							</div>
 						</section>

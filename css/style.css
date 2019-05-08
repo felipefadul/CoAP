@@ -41,6 +41,10 @@
 		color: #2A2A2A;
 	}
 
+	italic {
+		font-style: italic;
+	}
+
 	/* Images */
 
 		.image
@@ -702,13 +706,14 @@ ul.style3 .first {
 	{
 		line-height: 1.2em;
 		font-size: 2em;
+		color: #D1551F;
 	}
 
 	#content
 	{
 		color: #1f2023;
 		text-align: justify;
-		font-weight: 370;
+		font-weight: 400;
 		font-size: 1.05em;
 	}
 	

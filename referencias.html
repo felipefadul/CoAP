@@ -5,158 +5,217 @@
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-	<head>
-		<title>CoAP</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-panels.min.js"></script>
-		<script src="js/init.js"></script>
-		<script type="text/javascript">
-			function gerarLinkEmail(nome, usuario,dominio,assunto) 
-			{
-				document.write("<a href=\"mailto");
-				document.write(":" + usuario + "&#064;");
-				document.write(dominio + "?subject=" + assunto + "\">" +  nome + ' - ' + usuario + "&#064;" + dominio +"<\/a>");
-			}
-		</script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel-noscript.css" />
-			<link rel="stylesheet" href="css/style.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
-	</head>
-	<body>
-		<div id="wrapper">
-			
-			<!-- Header -->
-			<div id="header">
-				<div class="container"> 
-					
-					<!-- Logo -->
-					<div id="logo">
-						<h1><a href="#">Constrained Application Protocol</a></h1>
-						<span><a href="#">(CoAP)</a></span>
-					</div>
-					
-					<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Fundamentação Teórica</a></li>
-							<li><a href="funcionamento.html">Funcionamento do CoAP</a></li>
-							<li><a href="aplicacoes.html">Aplicações e razões para utilizá-lo</a></li>
-							<li><a href="conclusao.html">Conclusão</a></li>
-							<li><a href="perguntas.html">Perguntas</a></li>
-							<li class="active"><a href="referencias.html">Referências bibliográficas</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-			<!-- /Header -->
-					
-			<div id="page">
-					<div class="container">
-						<div class="row">
-							<div class="12u">
-								<section id="content" >
-									<header>
-										<h2>No Sidebar</h2>
-									</header>
-									<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi. Pellentesque adipiscing purus ac magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec leo. Vivamus fermentum nibh in augue. Praesent a lacus at urna congue rutrum. Nulla enim eros, porttitor eu, tempus id, varius non, nibh. </p>
-									<p>Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis tortor. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi. Pellentesque adipiscing purus ac magna. </p>
-									<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi. Pellentesque adipiscing purus ac magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec leo. Vivamus fermentum nibh in augue. Praesent a lacus at urna congue rutrum. Nulla enim eros, porttitor eu, tempus id, varius non, nibh. </p>
-								</section>
-								<div style="text-align: center">
-									<a href="perguntas.html" class="button" style="float: left">&lt&lt Anterior</a>
-									<a href="#" class="button">Topo</a>
-								</div>
-							</div>
-						</div>
-	
-					</div>	
-				</div>
-	
-			<!-- Footer -->
-			<div id="footer">
-				<div class="container">
-					<div class="row">
-						<div class="3u">
-							<section id="box1">
-								<header>
-									<h2>Links úteis</h2>
-								</header>
-								<ul class="style3">
-									<li class="first">
-										<p class="linkButton"><a href="http://www.poli.ufrj.br/" target="_blank">Escola Politécnica da UFRJ</a></p>
-									</li>
-									<li>
-										<p class="linkButton"><a href="https://www.gta.ufrj.br/" target="_blank">Grupo de Teleinformática e Automação da UFRJ</a></p>
-									</li>
-									<li>
-										<p class="linkButton"><a href="https://www.del.ufrj.br/" target="_blank">Departamento de Engenharia Eletrônica e de Computação da UFRJ</a></p>
-									</li>
-								</ul>
-							</section>
-						</div>
-						<div class="6u">
-							<section id="box2">
-								<header>
-									<h2>Autores</h2>
-									<ul class="style1">
-											<li class="first">
-												<script type="text/javascript"> 
-													gerarLinkEmail('ARYANE BARROS MACIEL DA SILVA', 'ary&#046;maciel','poli&#046;ufrj&#046;br','Feedback sobre o site do CoAP...');
-												</script>
-											</li>
-											<li>
-												<script type="text/javascript"> 
-													gerarLinkEmail('FELIPE FADUL DE CARVALHO', 'felipe&#046;fadul','poli&#046;ufrj&#046;br','Feedback sobre o site do CoAP...');
-												</script>
-											</li>
-											<li> 
-												<script type="text/javascript"> 
-													gerarLinkEmail('MARIANA DABUL NAZARIO', 'mariana&#046;dabul','poli&#046;ufrj&#046;br','Feedback sobre o site do CoAP...');
-												</script>
-											</li>
-											<noscript>
-												<em>Endereço de email protegido por JavaScript. Por favor, ative o JavaScript para visualizar o email.</em>
-											</noscript>
-									</ul>
-								</header>
-								<div style="text-align: justify">
-									<p>Este trabalho foi desenvolvido por alunos de graduação do curso de Engenharia Eletrônica e de Computação da Universidade Federal do Rio de Janeiro para a disciplina Redes de Computadores I durante o período de 2019.1. Compreende um estudo sobre o protocolo <i>CoAP</i>, apresentando suas principais características, funcionamento e aplicações.</p>
-								</div>
-							</section>
-						</div>
-						<div class="3u">
-							<section id="box3">
-								<header>
-									<h2>Contato</h2>
-								</header>
-								<div style="text-align: justify">
-									<p>Fique à vontade para comentar sobre o trabalho enviando-nos um email.</p>
-								</div>
-							</section>
-						</div>
-						<div style="text-align: justify">
-								"Este trabalho foi totalmente produzido pelos autores que declaram não terem violado os direitos autorais de terceiros, sejam eles pessoas físicas ou jurídicas. Havendo textos, tabelas e figuras transcritos de obras de terceiros com direitos autorais protegidos ou de domínio público tal como ideias e conceitos de terceiros, mesmo que sejam encontrados na Internet, os mesmos estão com os devidos créditos aos autores originais e estão incluídas apenas com o intuito de deixar o trabalho autocontido. O(s) autor(es) tem(êm) ciência dos Artigos 297 a 299 do Código Penal Brasileiro e também que o uso do artifício de copiar/colar texto de outras fontes e outras formas de plágio é um ato ilícito, condenável e passível de punição severa. No contexto da Universidade a punição não precisa se restringir à reprovação na disciplina e pode gerar um processo disciplinar que pode levar o(s) aluno(s) à suspensão;"
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<!-- Copyright -->
-			<div id="copyright">
-				<div class="container">
-						 Design by <a href="http://templated.co" target="_blank">TEMPLATED</a> -  Images: <a href="http://unsplash.com" target="_blank">Unsplash</a> (<a href="https://unsplash.com/license" target="_blank">CC0</a>)
+<head>
+	<title>CoAP</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+	<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/skel.min.js"></script>
+	<script src="js/skel-panels.min.js"></script>
+	<script src="js/init.js"></script>
+	<script type="text/javascript">
+		function gerarLinkEmail(nome, usuario, dominio, assunto) {
+			document.write("<a href=\"mailto");
+			document.write(":" + usuario + "&#064;");
+			document.write(dominio + "?subject=" + assunto + "\">" + nome + ' - ' + usuario + "&#064;" + dominio + "<\/a>");
+		}
+	</script>
+	<noscript>
+		<link rel="stylesheet" href="css/skel-noscript.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</noscript>
+	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+</head>
+
+<body>
+	<div id="wrapper">
+
+		<!-- Header -->
+		<div id="header">
+			<div class="container">
+
+				<!-- Logo -->
+				<div id="logo">
+					<h1><a href="#">Constrained Application Protocol</a></h1>
+					<span><a href="#">(CoAP)</a></span>
+				</div>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Fundamentação Teórica</a></li>
+						<li><a href="funcionamento.html">Funcionamento do CoAP</a></li>
+						<li><a href="aplicacoes.html">Aplicações e razões para utilizá-lo</a></li>
+						<li><a href="conclusao.html">Conclusão</a></li>
+						<li><a href="perguntas.html">Perguntas</a></li>
+						<li class="active"><a href="referencias.html">Referências bibliográficas</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- /Header -->
+
+		<div id="page">
+			<div class="container">
+				<div class="row">
+					<div class="12u">
+						<section id="content">
+							<header>
+								<h2>Referências bibliográficas</h2>
+							</header>
+							<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl
+								risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta
+								lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis,
+								ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem
+								urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Consectetuer
+								adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque.
+								Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis
+								libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit
+								interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi.
+								Pellentesque adipiscing purus ac magna. Pellentesque habitant morbi tristique senectus
+								et netus et malesuada fames ac turpis egestas. Donec leo. Vivamus fermentum nibh in
+								augue. Praesent a lacus at urna congue rutrum. Nulla enim eros, porttitor eu, tempus id,
+								varius non, nibh. </p>
+							<p>Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet,
+								magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id
+								lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla
+								blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis
+								tortor. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum.
+								Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse
+								dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget,
+								tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus.
+								Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo.
+								Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus.
+								Etiam neque. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend.
+								Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit
+								nulla suscipit interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et,
+								wisi. Pellentesque adipiscing purus ac magna. </p>
+							<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl
+								risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta
+								lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis,
+								ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem
+								urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Consectetuer
+								adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque.
+								Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis
+								libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit
+								interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi.
+								Pellentesque adipiscing purus ac magna. Pellentesque habitant morbi tristique senectus
+								et netus et malesuada fames ac turpis egestas. Donec leo. Vivamus fermentum nibh in
+								augue. Praesent a lacus at urna congue rutrum. Nulla enim eros, porttitor eu, tempus id,
+								varius non, nibh. </p>
+						</section>
+						<div style="text-align: center">
+							<a href="perguntas.html" class="button" style="float: left">&lt&lt Anterior</a>
+							<a href="#" class="button">Topo</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="3u">
+						<section id="box1">
+							<header>
+								<h2>Links úteis</h2>
+							</header>
+							<ul class="style3">
+								<li class="first">
+									<p class="linkButton"><a href="http://www.poli.ufrj.br/" target="_blank">Escola
+											Politécnica da UFRJ</a></p>
+								</li>
+								<li>
+									<p class="linkButton"><a href="https://www.gta.ufrj.br/" target="_blank">Grupo de
+											Teleinformática e Automação da UFRJ</a></p>
+								</li>
+								<li>
+									<p class="linkButton"><a href="https://www.del.ufrj.br/"
+											target="_blank">Departamento de Engenharia Eletrônica e de Computação da
+											UFRJ</a></p>
+								</li>
+							</ul>
+						</section>
+					</div>
+					<div class="6u">
+						<section id="box2">
+							<header>
+								<h2>Autores</h2>
+								<ul class="style1">
+									<li class="first">
+										<script type="text/javascript">
+											gerarLinkEmail('ARYANE BARROS MACIEL DA SILVA', 'ary&#046;maciel', 'poli&#046;ufrj&#046;br', 'Feedback sobre o site do CoAP...');
+										</script>
+									</li>
+									<li>
+										<script type="text/javascript">
+											gerarLinkEmail('FELIPE FADUL DE CARVALHO', 'felipe&#046;fadul', 'poli&#046;ufrj&#046;br', 'Feedback sobre o site do CoAP...');
+										</script>
+									</li>
+									<li>
+										<script type="text/javascript">
+											gerarLinkEmail('MARIANA DABUL NAZARIO', 'mariana&#046;dabul', 'poli&#046;ufrj&#046;br', 'Feedback sobre o site do CoAP...');
+										</script>
+									</li>
+									<noscript>
+										<em>Endereço de email protegido por JavaScript. Por favor, ative o JavaScript
+											para visualizar o email.</em>
+									</noscript>
+								</ul>
+							</header>
+							<div style="text-align: justify">
+								<p>Este trabalho foi desenvolvido por alunos de graduação do curso de Engenharia
+									Eletrônica e de Computação da Universidade Federal do Rio de Janeiro para a
+									disciplina Redes de Computadores I durante o período de 2019.1. Compreende um estudo
+									sobre o protocolo CoAP, apresentando suas principais características, funcionamento
+									e aplicações.</p>
+							</div>
+						</section>
+					</div>
+					<div class="3u">
+						<section id="box3">
+							<header>
+								<h2>Contato</h2>
+							</header>
+							<div style="text-align: justify">
+								<p>Fique à vontade para comentar sobre o trabalho enviando-nos um email.</p>
+							</div>
+						</section>
+					</div>
+					<div style="text-align: justify">
+						"Este trabalho foi totalmente produzido pelos autores que declaram não terem violado os direitos
+						autorais de terceiros, sejam eles pessoas físicas ou jurídicas. Havendo textos, tabelas e
+						figuras transcritos de obras de terceiros com direitos autorais protegidos ou de domínio público
+						tal como ideias e conceitos de terceiros, mesmo que sejam encontrados na Internet, os mesmos
+						estão com os devidos créditos aos autores originais e estão incluídas apenas com o intuito de
+						deixar o trabalho autocontido. O(s) autor(es) tem(êm) ciência dos Artigos 297 a 299 do Código
+						Penal Brasileiro e também que o uso do artifício de copiar/colar texto de outras fontes e outras
+						formas de plágio é um ato ilícito, condenável e passível de punição severa. No contexto da
+						Universidade a punição não precisa se restringir à reprovação na disciplina e pode gerar um
+						processo disciplinar que pode levar o(s) aluno(s) à suspensão;"
+					</div>
 				</div>
 			</div>
-			
 		</div>
-	</body>
+
+		<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+				Design by <a href="http://templated.co" target="_blank">TEMPLATED</a> - Images: <a
+					href="http://unsplash.com" target="_blank">Unsplash</a> (<a href="https://unsplash.com/license"
+					target="_blank">CC0</a>)
+			</div>
+		</div>
+
+	</div>
+</body>
+
 </html>

@@ -83,13 +83,13 @@
 								<h2><a name="1.1">1.1 Uso de protocolos na Internet</a></h2>
 							</header>
 							<p>
-								A Internet, criada no auge da Guerra Fria em 1969, é a maior rede de dados do mundo. Por
+								A Internet, criada no auge da Guerra Fria, em 1969, é a maior rede de dados do mundo. Por
 								consistir em diversas redes de variados portes interconectadas, é um sistema complexo e
 								que depende de padronização para que possa existir comunicação entre os seus usuários.
 								Visto isso, foram criados os protocolos de rede. Um protocolo pode ser definido como uma
 								descrição formal de um conjunto de convenções que regem a maneira e o fluxo de
 								comunicação entre os dispositivos em uma rede. Eles funcionam como um “idioma universal”
-								entre computadores de fabricantes e/ou sistemas operacionais diferentes.
+								entre computadores, inclusive de fabricantes e/ou sistemas operacionais diferentes.
 							</p>
 							<p>
 								A Internet foi desenvolvida fundamentada no modelo de referência TCP/IP, que é
@@ -103,15 +103,16 @@
 								<h2><a name=1.2>1.2 Internet das Coisas</a></h2>
 							</header>
 							<p>
-								Segundo o IETF (Internet Engineering Task Force), a Internet das Coisas pode ser
+								Segundo o IETF (<italic>Internet Engineering Task Force</italic>), a Internet das Coisas pode ser
 								conceituada como uma rede de objetos físicos incorporados a sensores, circuitos
-								eletrônicos e softwares com conectividade para viabilizar a troca de dados para
+								eletrônicos e <italic>softwares</italic> com conectividade para viabilizar a troca de dados para
 								monitoração, controle ou mesmo com outros dispositivos conectados.
 							</p>
 							<p>
-								Os sistemas IoT, comumente, possuem limitações de recursos de comunicação e computação.
-								Como alternativa a tal, a conexão desses sistemas à Internet proporciona autonomia ao
-								conjunto, de modo a obter um fluxo de informações mais linear, ou seja, sem que haja
+								Os sistemas IoT (<italic>Internet of Things</italic>), comumente, possuem limitações
+								de recursos de comunicação e computação. Como alternativa a tal, a conexão desses
+								sistemas à Internet proporciona autonomia ao conjunto, de modo a obter um fluxo
+								de informações mais linear, ou seja, sem que haja
 								intermediação de usuários humanos. Entretanto, para que isso ocorra, é necessário o uso
 								de protocolos específicos e adaptados para redes com poucos recursos.
 							</p>
@@ -120,34 +121,35 @@
 								<h2><a name="1.3">1.3 O que é o CoAP?</a></h2>
 							</header>
 							<p>
-								Embora o HTTP (Hypertext Transfer Protocol) seja amplamente usado, ele não possui as
+								Embora o HTTP (<italic>Hypertext Transfer Protocol</italic>) seja amplamente usado, ele não possui as
 								características ideais para os sistemas IoT, dado que seus pacotes podem ocupar milhares
-								de bytes. A IoT é composta de redes restritas, como a 6LoWPAN (IPv6 over Low-Power
-								Wireless Personal Area Networks) e nós restritos, executados em microcontroladores de 8
-								bits com pequenas quantidades de memória ROM e RAM.
+								de <italic>bytes</italic>. A IoT é composta de redes restritas, como a 6LoWPAN (<italic>IPv6 over Low-Power 
+								Wireless Personal Area Networks</italic>) e nós restritos, executados em microcontroladores de 8
+								<italic>bits</italic> com pequenas quantidades de memória ROM (Read Only Memory)
+								e RAM (<italic>Random Access Memory</italic>).
 							</p>
 							<p>
-								O CoAP, “Constrained Application Protocol”, ou, em uma tradução aproximada, “Protocolo
-								de Aplicação Restrita”, foi desenvolvido pelo grupo de trabalho CoRE (Constrained
-								Restful Environments) do IETF. Ele é bom em ambientes com recursos limitados:
+								O CoAP, “<italic>Constrained Application </italic>”, ou, em uma tradução aproximada, “Protocolo
+								de Aplicação Restrita”, foi desenvolvido pelo grupo de trabalho CoRE (<italic>Constrained
+								Restful Environments</italic>) do IETF. Ele é bom em ambientes com recursos limitados:
 								dispositivos com energia limitada, enlaces com baixa largura de banda, redes
 								congestionadas ou com perdas. Em redes congestionadas, CoAP/UDP pode funcionar, porém o
-								MQTT/TCP pode não ser nem capaz de administrar um handshake completo. CoAP pode ser
-								usado onde broadcast e multicast são necessários.
+								MQTT/TCP pode não ser nem capaz de administrar um <italic>handshake</italic> completo.
+								CoAP pode ser usado onde <italic>broadcast</italic> e <italic>multicast</italic> são necessários.
 							</p>
 							<p>
 								CoAP é adequado na construção de algo no qual um dispositivo é implantado em modo
-								"report only". Uma vez implantado, o dispositivo apenas reporta dados de volta para o
+								"<italic>report only</italic>". Uma vez implantado, o dispositivo apenas reporta dados de volta para o
 								servidor. O CoAP é adequado para redes de comunicações domésticas, posto que ferramentas
 								informativas, equipamentos de controle e de comunicação em redes de Casas Inteligentes
 								precisam ter baixo custo e serem leves.
 							</p>
 							<p>
-								Quando implantado em redes third-party (coletora de dados de terceiros) onde não temos
-								controle sob firewalls e portas bloqueadas, CoAP pode não ser adequado. Nesse caso,
+								Quando implantado em redes <italic>third-party</italic> (coletora de dados de terceiros) onde não temos
+								controle sob <italic>firewalls</italic> e portas bloqueadas, CoAP pode não ser adequado. Nesse caso,
 								HTTP/REST é uma boa opção. Como nós sensores são servidores CoAP, isso pode ser problema
-								com NAT (Network Address Table). LWM2M (Lightweight Machine to Machine), que é baseado
-								em CoAP, supera isso ao requerer que clientes enviem primeiro um pacote de prova de
+								com NAT (<italic>Network Address Table</italic>). LWM2M (<italic>Lightweight Machine to Machine</italic>),
+								que é baseado em CoAP, supera isso ao requerer que clientes enviem primeiro um pacote de prova de
 								forma que o roteador possa fazer a associação. Apesar de CoAP não requerer IPv6, é mais
 								fácil de ser implantado em redes IP.
 							</p>
@@ -157,29 +159,30 @@
 							</header>
 							<p>
 								Como IoT usa a Internet, CoAP foi inspirado no HTTP. Similarmente ao HTTP, CoAP é um
-								protocolo de transferência de documento baseado no método request-response, um cliente
-								pede um recurso para a URI (Uniform Resource Identifier) e o servidor responde. Além
-								disso, princípios de RESTful (capacidade de determinado sistema aplicar os princípios de
-								REST - Representational State Transfer) são seguidos e GET, POST, PUT, DELETE são
-								utilizados.
+								protocolo de transferência de documento baseado no método <italic>request-response</italic>
+								(requisição-resposta), um cliente pede um recurso para a URI (<italic>Uniform Resource Identifier</italic>)
+								e o servidor responde. Além disso, princípios de RESTful (capacidade de determinado sistema
+								aplicar os princípios de REST - <italic>Representational State Transfer</italic>) são seguidos
+								e GET, POST, PUT, DELETE são utilizados.
 							</p>
 							<p>
-								CoAP difere de HTTP porque usa UDP (User Datagram Protocol) para o transporte no lugar
-								de TCP (Transmission Control Protocol), visto que o handshaking de UDP é mais leve e
-								fácil de ser implementado em microcontroladores. Sua comunicação é feita usando
-								datagramas sem conexão. O cabeçalho do CoAP é de apenas 4 bytes, além de também poder
-								usar características do broadcast e multicast do UDP. Devido ao uso de datagramas, SMS e
-								outros protocolos baseados em pacotes também podem ser empregados. CoAP usa um subset de
-								tipos do MIME (Multi-Purpose Internet Mail Extensions) e códigos de resposta do HTTP.
+								CoAP difere de HTTP porque usa UDP (<italic>User Datagram Protocol</italic>) para o transporte no lugar
+								de TCP (<italic>Transmission Control Protocol</italic>), visto que o <italic> handshaking</italic>
+								de UDP é mais leve e fácil de ser implementado em microcontroladores. Sua comunicação é feita usando
+								datagramas sem conexão. O cabeçalho do CoAP é de apenas 4 <italic>bytes</italic>, além de também poder
+								usar características do <italic>broadcast</italic> e <italic>multicast</italic> do UDP.
+								Devido ao uso de datagramas, SMS e outros protocolos baseados em pacotes também podem ser empregados.
+								CoAP usa um <italic>subset</italic> de tipos do MIME (<italic>Multi-Purpose Internet Mail Extensions</italic>)
+								e códigos de resposta do HTTP.
 							</p>
 							<p>
-								CoAP usa o Datagram Transport Layer Security (DTLS) para segurança. O protocolo DTLS de
-								segurança de CoAP é denominado CoAPs. DTLS é baseado em PSK (Pre-Shared Key), RPK (Raw
-								Public Key) e certificado de segurança. Esses são os três principais elementos quando
+								CoAP usa o <italic>Datagram Transport Layer Security</italic> (DTLS) para segurança. O protocolo DTLS de
+								segurança de CoAP é denominado CoAPs. DTLS é baseado em PSK (<italic>Pre-Shared Key</italic>), RPK
+								(<italic>Raw Public Key</italic>) e certificado de segurança. Esses são os três principais elementos quando
 								consideramos segurança, integridade, autenticação e confidencialidade.
 							</p>
 							<p>
-								Como não é utilizado o protocolo TCP, o CoAP cuida dos acks das mensagens, tentativas de
+								Como não é utilizado o protocolo TCP, o CoAP cuida dos ACKs das mensagens, tentativas de
 								controle de congestionamento e detecção dupla.
 							</p>
 						</section>

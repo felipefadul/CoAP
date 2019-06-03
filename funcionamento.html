@@ -50,8 +50,9 @@
 					<ul>
 						<li><a href="index.html">Fundamentação Teórica</a></li>
 						<li class="active"><a href="funcionamento.html">Funcionamento do CoAP</a></li>
-						<li><a href="aplicacoes.html">Aplicações e razões para utilizá-lo</a></li>
+						<li><a href="aplicacoes.html">Aplicações</a></li>
 						<li><a href="conclusao.html">Conclusão</a></li>
+						<br>
 						<li><a href="perguntas.html">Perguntas</a></li>
 						<li><a href="referencias.html">Referências bibliográficas</a></li>
 					</ul>
@@ -91,7 +92,7 @@
 							</p>
 							<li>
 								<strong>Confirmável (CON) :</strong> Mensagens que precisam ser confirmadas. Quando
-								nenhum pacote é perdido, cada mensagem desse tipo resulta em uma mensagem do tipo 
+								nenhum pacote é perdido, cada mensagem deste tipo resulta em uma mensagem do tipo 
 								<italic>acknowledgement</italic> ou do tipo <italic>reset</italic>.
 							</li>
 							<br>
@@ -244,27 +245,53 @@
 								apenas uma interação excepcional). O valor padrão de <italic>NSTART</italic> para essa
 								especificação é de 1.
 							</p>
+							<p>
+								Depois de esgotado o tempo de recebimento do ACK (<italic>Exchange Lifetime</italic>),
+								o cliente deixa de esperar a resposta para a CON enviada. Otimizações de controle de congestionamento
+								adicionais permitem definir condições de parada de espera do ACK, de modo que um <italic>endpoint</italic>
+								não inunde o fluxo da rede no envio para outro nó de extremidade que não responde.
+							</p>
 
 							<header>
 								<h2><a name="2.6">2.6 Protocolo de segurança para CoAP</a></h2>
 							</header>
 							<p>
-								CoAP usa <italic>Datagram Transport Layer Security</italic> (DTLS) para segurança.
-								O protocolo DTLS de segurança de CoAP é denominado CoAPs. DTLS é baseado em PSK, RPK e certificado de
-								segurança. Esses são os três principais elementos quando consideramos segurança,
-								integridade, autenticação e confidencialidade. DTLS pode realizar todos esses. DTLS
-								resolve dois problemas: reordenação e perda de pacotes. Ele adiciona três
-								implementações:
-								<br>&emsp;- Retransmissão de pacotes
-								<br>&emsp;- Assigning sequence number dentro do handshake
-								<br>&emsp;- Detecção de <italic>replay</italic>
+								Assim como para HTTP existe um protocolo de segurança para transporte de mensagens
+								(TLS - <italic>Transport Layer Security</italic>) que atua sobre o TCP, o CoAP também é
+								protegido através do Datagram TLS (DTLS) que atua sobre o UDP, chamado CoAPs.
+								Na prática, DTLS é TLS com configurações para lidar com a natureza não confiável do transporte de mensagens UDP.
+							</p>
+							<p><strong>Modos de segurança:</strong></p>
+							<li>
+								<strong><italic>NoSec</italic> :</strong> não há segurança na camada de transporte. É o único modo no qual o DTLS está desabilitado,
+								deixando a segurança, caso precise, para as camadas de níveis mais baixos.
+							</li>
+							<br>
+							<li>
+								<strong><italic>Pre-shared key</italic> (PSKs) :</strong> conjunto de chaves que foram previamente estabelecidas
+								e permitem que os nós saibam quais os outros que podem estabelecer conexões.
+							</li>
+							<br>
+							<li>
+								<strong><italic>Raw Public Key</italic> :</strong> é um par assimétrico de chaves sem certificado.
+								O dispositivo também tem uma identificação calculada pela chave e uma lista de identidade
+								dos nós com os quais pode se comunicar.
+							</li>
+							<br>
+							<li>
+								<strong><italic>Certificates</italic> :</strong> é um par assimétrico de chaves sem certificado.
+								O dispositivo também tem uma identificação calculada pela chave e uma lista de identidade
+								dos nós com os quais pode se comunicar.
+							</li>
+							<br>
+							<p>
+									Ambos os nós da conexão devem ser clientes DTLS. A sessão deve ser iniciada na porta adequada e deve-se primeiro
+									estabelecer a conexão (através do <italic>handshake</italic>) para então começar a transmitir mensagens.
 							</p>
 							<p>
-								Ao contrário de protocolos de segurança da camada de rede, DTLS em camadas de aplicação
-								protege comunicações fim a fim. Nenhuma proteção de comunicações fim a fim vai tornar
-								mais fácil para atacantes terem acesso a todo o dado em texto que passa por um nó
-								comprometido. DTLS também evita problemas de criptografia de <italic>overhead</italic>
-								que ocorre em protocolos de segurança aplicados em camadas mais baixas.
+									Além disso, também é importante que durante uma interação entre cliente e servidor usando DTLS,
+									o <italic>request</italic> de um cliente, de qualquer tipo, deve conter sessão,  <italic>timestamp</italic>
+									e <italic>Message ID</italic> correspondentes. O mesmo vale para a resposta do <italic>request</italic>.
 							</p>
 
 						</section>

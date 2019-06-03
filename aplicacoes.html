@@ -50,8 +50,9 @@
 					<ul>
 						<li><a href="index.html">Fundamentação Teórica</a></li>
 						<li><a href="funcionamento.html">Funcionamento do CoAP</a></li>
-						<li class="active"><a href="aplicacoes.html">Aplicações e razões para utilizá-lo</a></li>
+						<li class="active"><a href="aplicacoes.html">Aplicações</a></li>
 						<li><a href="conclusao.html">Conclusão</a></li>
+						<br>
 						<li><a href="perguntas.html">Perguntas</a></li>
 						<li><a href="referencias.html">Referências bibliográficas</a></li>
 					</ul>
@@ -66,47 +67,120 @@
 					<div class="3u">
 						<section id="sidebard2">
 							<header>
-								<h2>3) Aplicações e razões para utilizá-lo</h2>
+								<h2>3) Aplicações</h2>
 							</header>
 							<ul class="style1">
-								<li class="first"><span class="fa fa-check"></span><a href="#">3.1 Descoberta de
-										serviços</a></li>
-								<li><span class="fa fa-check"></span><a href="#">3.2 Descoberta de recursos</a></li>
-								<li><span class="fa fa-check"></span><a href="#">3.3 <italic>
-											Multicast
-										</italic> CoAP</a></li>
+								<li class="first"><span class="fa fa-check"></span><a href="#3.1">3.1 Mapeamento do HTTP para CoAP</a></li>
+								<li><span class="fa fa-check"></span><a href="#3.2">3.2 Descoberta de serviços</a>
+								<li><span class="fa fa-check"></span><a href="#3.3">3.3 Descoberta de recursos</a></li>
+								<li><span class="fa fa-check"></span><a href="#3.4">3.4 <italic>Multicast</italic> CoAP</a></li>
+								<li><span class="fa fa-check"></span><a href="#3.5">3.5 <italic>Multicast</italic> ao nível de mensagem</a></li>
+								<li><span class="fa fa-check"></span><a href="#3.6">3.6 <italic>Multicast</italic> ao nível de solicitação / resposta</a></li>
 							</ul>
 						</section>
 					</div>
 
-
 					<div class="9u skel-cell-important">
 						<section id="content">
 							<header>
-								<h2>3.1 Descoberta de serviços</h2>
+								<h2><a name="3.1">3.1 Mapeamento do HTTP para CoAP</a></h2>
 							</header>
-							<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl
-								risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta
-								lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis,
-								ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem
-								urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Donec leo. Vivamus
-								fermentum nibh in augue. Nulla enim eros, porttitor eu, tempus id, varius non, nibh.
-								Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet,
-								magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id
-								lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla
-								blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis
-								tortor.</p>
-							<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl
-								risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta
-								lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis,
-								ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem
-								urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Donec leo. Vivamus
-								fermentum nibh in augue. Nulla enim eros, porttitor eu, tempus id, varius non, nibh.
-								Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet,
-								magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id
-								lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla
-								blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis
-								tortor.<br>
+							<p>CoAP não foi apenas projetado para trabalhar em arquiteturas REST, mas também para implementar algumas
+								funcionalidades encontradas no protocolo HTTP. Consequentemente, isso facilita com que o CoAP interopere com HTTP, logo, o
+								mapeamento entre os dois protocolos torna-se direto.
+							</p>
+							<p>Esse mapeamento é benéfico para dispositivos que não conseguem operar ou entender o CoAP, permitindo que sensores
+								compartilhem informações com a web ou que até dispositivos mais inteligentes consigam interagir com esses sensores.
+							</p>
+							<p>
+								Existem duas possíveis direções para acessar um recurso via <italic>forward-proxy</italic>:
+							</p>
+							<p>
+								<li>
+									<strong>CoAP-HTTP <italic>Proxying</italic> :</strong> Permite acesso aos clientes CoAP de recursos de servidores HTTP através
+									de um intermediário. Isso é inicializado ao incluir <italic>Proxy-URI</italic> ou a opção <italic>Proxy-Scheme</italic> com uma
+									URI "http" ou "https" em um <italic>request</italic> CoAP a um CoAP-HTTP <italic>proxy</italic>.
+								</li>
+								<br>
+								<li>
+									<strong>HTTP-CoAP <italic>Proxying</italic> </strong> Permite acesso aos clientes HTTP de recursos de servidores CoAP através de um
+									intermediário. Isso é inicializado ao especificar uma URI "coap" ou "coaps" em uma <italic>request-line</italic>
+									de um <italic>request</italic> HTTP a um HTTP-CoAP <italic>proxy</italic>.
+								</li>
+							</p>
+							<header>
+									<h2><a name="3.2">3.2 Descoberta de serviços</a></h2>
+							</header>
+							<p>
+								Um servidor é descoberto por um cliente utilizando uma URI que faz referência à localização da sua porta UDP.
+								Alternativamente, clientes podem usar <italic>multicast</italic> CoAP para encontrar o endereço de mais de um servidor CoAP.
+								Caso a porta não seja especificada, assume-se que o servidor possa ser encontrado através da porta padrão 5683.
+							</p>
+							<header>
+									<h2><a name="3.3">3.3 Descoberta de recursos</a></h2>
+							</header>
+							<p>
+								A descoberta de recursos oferecida pelo <italic>endpoint</italic> do CoAP é extremamente importante em aplicações M2M
+								(<italic>Machine to Machine</italic>) em que não existem humanos, e interfaces estáticas resultam em fragilidade.
+								Essa descoberta é baseada em diretório de dispositivos.
+							</p>
+							<p>
+								A busca por serviços em CoAP pode ser realizada mediante a utilização de parâmetros adicionados à string de consulta por
+								dispositivos, enviada ao respectivo diretório de recursos.
+							</p>
+							<p>
+								Para maximizar interoperabilidade em um ambiente CoRE, um <italic>endpoint</italic> CoAP deve suportar o "CoRE
+								<italic>Link Format</italic>" de recursos descobertos, que tem como atributos o <italic>Resource Type
+								</italic>, o <italic>Interface Description</italic> e o <italic>Context Type</italic>.
+								<italic>O Resource Type</italic> é responsável por identificar a função de um dado recurso, como coletar dados
+								de temperatura, luminosidade, ou qualquer outro dado que seja; o <italic>Interface Description</italic> 
+								indica os métodos que podem ser utilizados para a comunicação com esse recurso, como, por exemplo, GET, POST
+								e outros definidos pelo REST; o <italic>Context Type</italic> indica o formato dos dados fornecidos pelo recurso.
+								Esses são os atributos suportados por um <italic>endpoint</italic> CoAP, exceto quando configurações
+								completamente manuais são desejadas. Cabe ao servidor definir quais recursos são feitos detectáveis (se houver).
+							</p>
+							<header>
+									<h2><a name="3.4">3.4 Multicast CoAP</a></h2>
+							</header>
+							<p>
+								Comunicação <italic>multicast</italic> é uma relação de um para vários <italic>endpoints</italic>.
+								Dispositivos limitados podem ser associados tanto por sua posição ou propósito, e essas relações podem
+								tanto ser pré-configuradas ou configuradas durante as operações. Exemplo: um grupo de interruptores
+								CoAP onde um simples comando de comunicação para o grupo pode acender ou apagar todas as luzes de um andar
+								específico de um prédio.
+							</p>
+							<p>
+								A estrutura fundamental de uma comunicação do grupo CoAP são <italic>requests</italic> enviados via UDP
+								com um IP <italic>multicast</italic> e respostas usando UDP com um IP <italic>unicast</italic>.
+								Entretanto, para essa comunicação em grupo do CoAP ainda não foi definida uma medida de segurança
+								para IP <italic>multicast</italic>, pois DTLS não suporta comunicações <italic>multicast</italic>.
+								Portanto, CoAP opera no modo <italic>NoSec</italic> quando faz transmissões <italic>multicast</italic>.
+							</p>
+							<header>
+								<h2><a name="3.5">3.5 Multicast ao nível de mensagem</a></h2>
+							</header>
+							<p>
+								Mensagens <italic>multicast</italic> não requerem confirmação de recebimento, para isso, o servidor deve saber
+								que a mensagem foi recebida por um fluxo <italic>multicast</italic>, para evitar uma implosão de erros.
+								Caso o servidor não esteja ciente, ele deve retornar uma mensagem de RESET. Essa mensagem de RESET será idêntica
+								a uma mensagem <italic>unicast</italic> do remetente, portanto, este deve evitar usar um mesmo ID de mensagem
+								ativo num <italic>endpoint</italic> que tenha recebido a mensagem <italic>multicast</italic>.
+							</p>
+							<header>
+								<h2><a name="3.6">3.6 Multicast ao nível de solicitação / resposta</a></h2>
+							</header>
+							<p>
+								Caso um servidor queira responder uma mensagem <italic>multicast</italic>, deve escolher uma duração para
+								o período de tempo durante o qual pretende responder. Se mais respostas precisarem ser enviadas com base na 
+								mesma associação de endereço <italic>multicast</italic>, 
+								um novo período de espera (<italic>leisure period</italic>) começa imediatamente após o término do intervalo
+								de tempo de envio do primeiro. Esse tempo de espera depende da aplicação, mas pode ser modelado previamente como:
+								
+								<div class="formula">
+									lb_Leisure = S * G / R
+								</div>
+								Em que S é o tamanho estimado de resposta (<italic>Response Size</italic>), G é o tamanho estimado do grupo
+								de envio (<italic>Group Size</italic>) e R, a taxa de transferência de dados (<italic>Data Transfer Rate</italic>).
 							</p>
 						</section>
 						<div style="text-align: center">

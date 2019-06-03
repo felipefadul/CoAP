@@ -50,8 +50,9 @@
 					<ul>
 						<li><a href="index.html">Fundamentação Teórica</a></li>
 						<li><a href="funcionamento.html">Funcionamento do CoAP</a></li>
-						<li><a href="aplicacoes.html">Aplicações e razões para utilizá-lo</a></li>
+						<li><a href="aplicacoes.html">Aplicações</a></li>
 						<li class="active"><a href="conclusao.html">Conclusão</a></li>
+						<br>
 						<li><a href="perguntas.html">Perguntas</a></li>
 						<li><a href="referencias.html">Referências bibliográficas</a></li>
 					</ul>
@@ -69,13 +70,10 @@
 								<h2>4) Conclusão</h2>
 							</header>
 							<ul class="style1">
-								<li class="first"><span class="fa fa-check"></span><a href="#">4.1 Vantagens e
-										limitações</a></li>
-								<li><span class="fa fa-check"></span><a href="#">4.2 Alternativas para CoAP</a></li>
-								<li><span class="fa fa-check"></span><a href="#">4.3 Comparação de performance com as
-										alternativas</a></li>
-								<li><span class="fa fa-check"></span><a href="#">4.4 Perspectiva atual e futura do CoAP
-										no IoT</a></li>
+								<li class="first"><span class="fa fa-check"></span><a href="#4.1">4.1 Vantagens e limitações</a></li>
+								<li><span class="fa fa-check"></span><a href="#4.2">4.2 Alternativas para CoAP</a></li>
+								<li><span class="fa fa-check"></span><a href="#4.3">4.3 Comparação de performance com as alternativas</a></li>
+								<li><span class="fa fa-check"></span><a href="#4.4">4.4 Perspectiva atual e futura do CoAP em IoT</a></li>
 							</ul>
 						</section>
 					</div>
@@ -84,30 +82,96 @@
 					<div class="9u skel-cell-important">
 						<section id="content">
 							<header>
-								<h2>4.1 Vantagens e limitações</h2>
+								<h2><a name="4.1">4.1 Vantagens e limitações</a></h2>
 							</header>
-							<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl
-								risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta
-								lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis,
-								ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem
-								urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Donec leo. Vivamus
-								fermentum nibh in augue. Nulla enim eros, porttitor eu, tempus id, varius non, nibh.
-								Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet,
-								magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id
-								lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla
-								blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis
-								tortor.</p>
-							<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl
-								risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta
-								lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis,
-								ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem
-								urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Donec leo. Vivamus
-								fermentum nibh in augue. Nulla enim eros, porttitor eu, tempus id, varius non, nibh.
-								Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet,
-								magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id
-								lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla
-								blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis
-								tortor.<br>
+							<p>
+								O CoAP é um protocolo da camada de aplicação similar ao HTTP, porém projetado para ser mais simples, demandando menos
+								memória, processamento e, consequentemente, energia. Ele provê uma solução RESTFUL, seguindo a semântica HTTP,
+								entretanto com um cabeçalho mais leve e uma abordagem binária e não textual.
+							</p>
+							<p>
+								O que garante menor complexidade ao CoAP com relação ao HTTP é o uso do protocolo de transporte UDP. O CoAP possui um
+								tratamento para o problema de perda de pacotes, não solucionado pelo UDP, adicionando uma camada à mensagem para
+								detecção e retransmissão dos pacotes. Um cabeçalho CoAP tem apenas quatro <italic>bytes</italic> somados a dois
+								<italic>bytes</italic> para opções e a resposta da requisição ocupa apenas um <italic>byte</italic>.
+								Assim, uma requisição geralmente usa de 10 a 20 <italic>bytes</italic>.
+							</p>
+							<p>
+								O CoAP, como outros protocolos, é passível de ataques e ameaças. Estão listados abaixo os mais frequentes no CoAP:
+							</p>
+							<header>
+								<h2><a name="4.2">4.2 Alternativas para CoAP</a></h2>
+							</header>
+							<p>
+								Um outro protocolo de aplicação alternativo para o CoAP é o MQTT (<italic>Message Queue Telemetry Transport</italic>)
+								que atua sobre TCP, assim como o HTTP. Foi desenvolvido no final dos anos 90 com o intuito de vincular sensores em
+								<italic>pipelines</italic> de petróleo a satélites.
+							</p>
+							<p>
+								Com relação ao protocolo MQTT, o CoAP difere, principalmente, na arquitetura e na forma de comunicação. Este estabelece
+								conexões M2M entre cliente e servidor, enquanto o MQTT é baseado na arquitetura <italic>client-broker</italic>.
+								Ambos protocolos tem como objetivo pouco esforço computacional e “<italic>low data overhead</italic>”.
+								Dessa forma, atuam bem em ambientes com recursos limitados de rede.
+							</p>
+							<p>
+								MQTT atua em cima de TCP, enquanto CoAP usa UDP. Além disso, MQTT é orientado <italic>publish-subscribe</italic>
+								e CoAP orientado <italic>request-response</italic>. No MQTT todas as mensagens devem ser publicadas para um endereço,
+								chamado de tópico (<italic>topic</italic>). Os clientes podem se inscrever em mais de um tópico, recebendo
+								todas as mensagens enviadas para tais tópicos.
+							</p>
+							<header>
+								<h2><a name="4.3">4.3 Comparação de performance com as alternativas</a></h2>
+							</header>
+							<p>
+								Ambos os protocolos citados são largamente utilizados na indústria tecnológica, porém eles possuem diferenças cruciais
+								que vão caracterizar a tomada de decisão sobre qual utilizar.
+							</p>
+							<p>
+								O MQTT é um protocolo de comunicação de muitos-para-muitos, explicitando, ele pode transmitir mensagens entre vários
+								clientes por meio de um intermediário central, o qual chamamos de <italic>Broker</italic>. Isso dissocia o servidor
+								e o cliente, permitindo que os clientes publiquem e fazendo com que o <italic>broker</italic> decida para onde rotear
+								as mensagens. Embora o MQTT tenha suporte para persistência, já que trabalha sobre o protocolo de transporte TCP, ele
+								funciona melhor como um barramento de comunicação para dados ativos.
+							</p>
+							<p>
+								O princípio de funcionamento do CoAP é, principalmente, de um-para-um, ou M2M, para transferir informações de estado
+								entre o cliente e o servidor. Embora tenha suporte para a observação de recursos, o CoAP é mais adequado para um modelo
+								de transferência de estado.
+							</p>
+							<p>
+								O MQTT não oferece suporte para classificar mensagens com tipos ou outros metadados para ajudar os clientes a
+								entendê-los. As mensagens MQTT podem ser usadas para qualquer finalidade, mas todos os clientes devem conhecer os
+								formatos de mensagens antecipadamente para permitir a comunicação. O CoAP, no entanto, possui suporte para descoberta de
+								serviços e recursos, permitindo que os dispositivos investiguem uns aos outros para encontrar formas de trocar dados.
+							</p>
+							<header>
+								<h2><a name="4.4">4.4 Perspectiva atual e futura do CoAP em IoT</a></h2>
+							</header>
+							<p>
+								O CoAP trouxe para o mundo da Internet das Coisas a possibilidade de fluxos de mensagens e gerência dos recursos da rede
+								com dispositivos de capacidade restrita. Atualmente, o CoAP é bastante utilizado para soluções de mercado que necessitam
+								interoperabilidade em redes de baixa capacidade ou, simplesmente, quando um tráfego elevado de informações não é o
+								esperado.
+							</p>
+							<p>
+								O universo IoT está usando amplamente o CoAP como um protocolo para automação residencial e em inúmeras aplicações
+								industriais. Ele também é usado para gerenciar dispositivos usando o protocolo LWM2M (<italic>Lightweight
+								Machine-to-Machine</italic>) da <italic>Open Mobile Alliance</italic> (OMA) e outras organizações - incluindo
+								<italic>The Open Connectivity Foundation</italic> e <italic>ZigBee</italic> estão usando o CoAP como um protocolo
+								central para suas estruturas e implementações de produtos.
+							</p>
+							<p>
+								Em 2016, a <italic>Cisco Systems</italic> utilizou o CoAP como uma ferramenta para acelerar a sua transformação digital,
+								conectando pessoas, lugares e dispositivos com maior segurança, automatização e análise de dados. A Cisco chamou de
+								<italic>Digital Ceiling</italic> a convergência de sistemas diferentes nos seus postos de trabalho, como iluminação e refrigeração,
+								visando reduzir custos, melhorar a experiência do utilizador e diminuir desperdícios. No seu <italic>framework</italic> de
+								transformação foi criado o pilar <italic>Information Exchange</italic> , o qual visa a utilização do protocolo CoAP para a
+								interoperabilidade entre os dispositivos, sensores e módulos de ativação.
+							</p>
+							<p>
+								O CoAP tem evoluído rapidamente, segundo a <italic>Open Mobile Alliance</italic> (OMA). Como em todas as novas implantações de
+								protocolos, está em andamento o trabalho para continuar melhorando o CoAP. O trabalho futuro da IETF CoAP inclui
+								novos modos de segurança diferentes de DTLS, comunicação de grupo, gerenciamento e modelos de interação.
 							</p>
 						</section>
 						<div style="text-align: center">

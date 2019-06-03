@@ -32,6 +32,15 @@
 		line-height: 180%;
 	}
 
+	.formula
+	{
+		margin: 1.5em auto;
+		width: 220px; 
+		text-align: center;
+		padding: 1em 1.5em;
+		border: 3px ridge #D1551F;
+	}
+
 	a {
 		color: #D1551F;
 	}

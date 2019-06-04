@@ -70,21 +70,30 @@
 								<h2>2) Funcionamento do CoAP</h2>
 							</header>
 							<ul class="style1">
-								<li class="first"><span class="fa fa-check"></span><a href="#2.1">2.1 Modelo e fluxo de mensagens</a></li>
-								<li><span class="fa fa-check"></span><a href="#2.2">2.2 Intermediários e Cache</a></li>
-								<li><span class="fa fa-check"></span><a href="#2.3">2.3 Formato da mensagem</a></li>
-								<li><span class="fa fa-check"></span><a href="#2.4">2.4 Correlação de mensagens e desduplicação</a></li>
-								<li><span class="fa fa-check"></span><a href="#2.5">2.5 Controle de congestionamento</a></li>
-								<li><span class="fa fa-check"></span><a href="#2.6">2.6 Protocolo de segurança para CoAP</a></li>
+								<li class="first"><span class="fa fa-check"></span><a href="#2.1">2.1 Estrutura</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.2">2.2 Modelo e fluxo de mensagens</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.3">2.3 Modelo requisição/resposta</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.4">2.4 Intermediários e Cache</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.5">2.5 Formato da mensagem</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.6">2.6 Correlação de mensagens e desduplicação</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.7">2.7 Controle de congestionamento</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.8">2.8 Parâmetros de Transmissão</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.9">2.9 Protocolo de segurança para CoAP</a></li>
 							</ul>
 						</section>
 					</div>
 
-
 					<div class="9u skel-cell-important">
 						<section id="content">
 							<header>
-								<h2><a name="2.1">2.1 Modelo e fluxo de mensagens</a></h2>
+								<h2><a name="2.1">2.1 Estrutura</a></h2>
+							</header>
+							<figure>
+								<img src="images/CamadasAbstratasCoAP.png" alt="Camadas do CoAP"/>
+								<figcaption><span>Figura 2:</span> Camadas Abstratas do CoAP.</figcaption>
+							</figure>
+							<header>
+								<h2><a name="2.2">2.2 Modelo e fluxo de mensagens</a></h2>
 							</header>
 							<p>
 								O modelo de mensagens do CoAP é baseado na troca de mensagens de ponta a ponta através do
@@ -120,6 +129,11 @@
 								confirmável é retransmitida usando um tempo limite padrão entre retransmissões,
 								até o destinatário, enviando uma mensagem de confirmação (ACK) com o mesmo ID de mensagem.
 							</p>
+							<figure>
+								<img src="images/TransmissaoMensagemConfiavel.png" alt="Mensagem Confirmável"/>
+								<figcaption><span>Figura 3:</span> Transmissão de Mensagem Confirmável (CON).</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>							
 							<p>
 								Quando um destinatário não é capaz de processar uma mensagem como confirmável, ele
 								responde com uma mensagem <italic>Reset</italic> (RST) no lugar de <italic>Acknowledgement</italic> (ACK).
@@ -130,14 +144,52 @@
 								reconhecidas, mas ainda têm um ID de mensagem para detecção duplicada. Quando um destinatário não for capaz de
 								processar uma mensagem não confirmável, pode-se responder com uma mensagem de <italic>Reset</italic> (RST).
 							</p>
+							<figure>
+								<img src="images/TransmissaoNaoConfiavel.png" alt="Mensagem Não Confirmável"/>
+								<figcaption><span>Figura 4:</span> Transmissão de Mensagem Não Confirmável (NON).</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>	
 							<p>
 								Como o CoAP é executado sobre UDP, que é um protocolo não confiável, também suporta o
 								uso dos endereços <italic>multicast</italic> IP de destino, permitindo solicitações
 								<italic>multicast</italic> CoAP, como precaução para evitar o congestionamento da resposta.
 							</p>
-
 							<header>
-								<h2><a name="2.2">2.2 Intermediários e Cache</a></h2>
+								<h2><a name="2.3">2.3 Modelo requisição/resposta</a></h2>
+							</header>
+							<p>
+								Um <italic>request</italic> (requisição) pode ser enviado através de uma mensagem CON (confirmável) ou
+								NON (não confirmável), e, se estiver imediatamente disponível, deve ser enviada uma mensagem ACK para a
+								mensagem CON. Isso é a chamada resposta <italic>piggybacked</italic>.
+								(Não há motivo para enviar um ACK separado para uma resposta <italic>piggybacked</italic>, já que o cliente
+								retransmitirá o <italic>request</italic> caso a mensagem ACK seja perdida).
+							</p>
+							<figure>
+								<img src="images/fig1mensagem.png" alt="Respostas Piggybacked"/>
+								<figcaption><span>Figura 5:</span> Dois <italic>requests</italic>&nbsp; GET com respostas piggybacked.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>	
+							<p>
+								Caso o servidor não esteja apto a responder imediatamente um <italic>request</italic> de uma mensagem CON, ele
+								simplesmente responde com um ACK vazio. Dessa forma o cliente sabe que pode parar de retransmitir o
+								<italic>request</italic>. Quando a resposta estiver pronta para ser enviada, o servidor envia uma nova mensagem CON.
+							</p>
+							<figure>
+								<img src="images/fig2mensagem.png" alt="GET com respostas separada"/>
+								<figcaption><span>Figura 6:</span> Um <italic>request</italic>&nbsp; GET com resposta separada.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
+							<p>
+								Caso um <italic>request</italic> seja enviado através de uma mensagem NON, então a resposta é enviada usando uma
+								nova mensagem NON.
+							</p>	
+							<figure>
+								<img src="images/fig3mensagem.png" alt="Request e resposta NON"/>
+								<figcaption><span>Figura 7:</span> Um <italic>request</italic> e uma resposta, ambos NON.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
+							<header>
+								<h2><a name="2.4">2.4 Intermediários e Cache</a></h2>
 							</header>
 							<p>
 								O protocolo suporta o armazenamento de respostas com a finalidade de atender de forma
@@ -161,10 +213,15 @@
 								("<italic>cross-proxy</italic>"), o qual converte o método ou código de resposta, tipo de mídia
 								e opções para o recurso HTTP correspondente.
 							</p>
-
+							
 							<header>
-								<h2><a name="2.3">2.3 Formato da mensagem</a></h2>
+								<h2><a name="2.5">2.5 Formato da mensagem</a></h2>
 							</header>
+							<figure>
+								<img src="images/CabecalhoCoAP.png" alt="Cabeçalho do CoAP"/>
+								<figcaption><span>Figura 8:</span> Cabeçalho do CoAP.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
 							<p>
 								CoAP é baseado na troca de mensagens compactadas que, por padrão, são transportadas pelo
 								UDP (ou seja, cada mensagem do CoAP ocupa uma seção de dados de um datagrama UDP).
@@ -215,7 +272,7 @@
 							<br>
 
 							<header>
-								<h2><a name="2.4">2.4 Correlação de mensagens e desduplicação</a></h2>
+								<h2><a name="2.6">2.6 Correlação de mensagens e desduplicação</a></h2>
 							</header>
 							<p>
 								Uma mensagem ACK ou RST é relacionada com uma mensagem CON e NON através de uma mensagem
@@ -231,7 +288,7 @@
 							</p>
 
 							<header>
-								<h2><a name="2.5">2.5 Controle de congestionamento</a></h2>
+								<h2><a name="2.7">2.7 Controle de congestionamento</a></h2>
 							</header>
 							<p>
 								Com o intuito de não causar congestionamento, clientes (incluindo <italic>proxies</italic>) DEVEM
@@ -253,7 +310,19 @@
 							</p>
 
 							<header>
-								<h2><a name="2.6">2.6 Protocolo de segurança para CoAP</a></h2>
+								<h2><a name="2.8">2.8 Parâmetros de Transmissão</a></h2>
+							</header>
+							<p>
+								A transmissão de mensagens é controlada pelos parâmetros especificados na tabela a seguir:
+							</p>
+							<figure>
+								<img src="images/tabela1.png" alt="Parâmetros do CoAP"/>
+								<figcaption><span>Tabela 1:</span> Parâmetros do Protocolo CoAP.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
+
+							<header>
+								<h2><a name="2.9">2.9 Protocolo de segurança para CoAP</a></h2>
 							</header>
 							<p>
 								Assim como para HTTP existe um protocolo de segurança para transporte de mensagens
@@ -261,6 +330,11 @@
 								protegido através do Datagram TLS (DTLS) que atua sobre o UDP, chamado CoAPs.
 								Na prática, DTLS é TLS com configurações para lidar com a natureza não confiável do transporte de mensagens UDP.
 							</p>
+							<figure>
+								<img src="images/DTLS.png" alt="Camada com DTLS"/>
+								<figcaption><span>Figura 9:</span> Pilha das camadas com inclusão do CoAP protegido pelo DTLS.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
 							<p><strong>Modos de segurança:</strong></p>
 							<li>
 								<strong><italic>NoSec</italic> :</strong> não há segurança na camada de transporte. É o único modo no qual o DTLS está desabilitado,

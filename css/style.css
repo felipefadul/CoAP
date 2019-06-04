@@ -761,6 +761,30 @@ label
 	cursor: pointer;
 }
 
+/** FIGURAS **/
+figure
+{
+  text-align: center;
+  width: 100%;
+}
+
+figure span
+{
+	font-weight: bold;
+}
+
+figure figcaption
+{
+	margin: 1em;
+}
+
+.sublegenda
+{
+	margin: -0.5em auto 1em;
+	font-size: 15px;
+}
+
+
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/

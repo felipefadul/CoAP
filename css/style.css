@@ -41,6 +41,11 @@
 		border: 3px ridge #D1551F;
 	}
 
+	.perguntas
+	{
+		font-size: 20px;
+	}
+
 	a {
 		color: #D1551F;
 	}
@@ -111,6 +116,16 @@
 		text-transform: uppercase;
 		font-weight: 900;
 		font-size: 1.5em;
+		color: #323338;
+	}
+
+	header h3
+	{
+		letter-spacing: 1.2px;
+		margin: 2.5em 0 0em;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 1em;
 		color: #323338;
 	}
 
@@ -686,6 +701,64 @@ ul.style3 .first {
 	font-family: 'Abel', sans-serif;
 	font-size: 14px;
 	color: #FFFFFF;
+}
+
+/** BOTÃO RESPOSTA**/
+#toggle-1,
+#toggle-2,
+#toggle-3,
+#toggle-4,
+#toggle-5
+{
+	display:none;
+}
+
+label 
+{ 
+	-webkit-appearance: push-button;
+	-moz-appearance: button; 
+	display: inline-block;
+	cursor: pointer;
+	padding: 5px;
+}
+
+/* CSS padrão da div */
+#mostra-1,
+#mostra-2,
+#mostra-3,
+#mostra-4,
+#mostra-5
+{
+	display:none;
+}
+
+/* CSS quando o checkbox está marcado */
+#toggle-1:checked ~ #mostra-1,
+#toggle-2:checked ~ #mostra-2,
+#toggle-3:checked ~ #mostra-3,
+#toggle-4:checked ~ #mostra-4,
+#toggle-5:checked ~ #mostra-5
+{
+	display:block;
+}
+
+.botaoResposta
+{
+	position: relative;
+	display: inline-block;
+	padding: 1em 1.5em;
+	background: #323338;
+	border-radius: 2px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 0.7em;
+	color: #FFF;
+	-moz-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+	-webkit-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+	-o-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+	-ms-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+	transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+	cursor: pointer;
 }
 
 /*********************************************************************************/

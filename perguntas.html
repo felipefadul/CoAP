@@ -80,7 +80,7 @@
 							<input type="checkbox" id="toggle-1">
 							<div id="mostra-1">
 								<p>
-									<strong>CoAP:</strong> utiliza UDP como protocolo de transporte; é assíncrono; possui cabeçalho pequeno e limitado.
+									<strong>CoAP:</strong> utiliza UDP como protocolo de transporte; pode transmitir mensagens de forma síncrona ou assíncrona; possui cabeçalho pequeno e limitado.
 									<br>
 									<strong>HTTP:</strong> utiliza TCP como protocolo de transporte; é síncrono (precisa estar com a conexão estabelecida para haver troca de mensagens); possui cabeçalho não limitado.
 								</p>
@@ -105,7 +105,7 @@
 							</div>
 							<header>
 								<h3>
-									3) Quais são os modos de segurança presentes no CoAP?
+									3) Qual a diferença entre o uso de mensagens CON e mensagens NON?
 								</h3>
 							</header>
 							<label for="toggle-3" class="botaoResposta">
@@ -114,18 +114,15 @@
 							<input type="checkbox" id="toggle-3">
 							<div id="mostra-3">
 								<p>
-									<strong><italic>NoSec</italic> :</strong> não há segurança na camada de transporte, DTLS desabilitado;
-									<br>
-									<strong><italic>Pre-shared key (PSKs)</italic> :</strong> conjunto de chaves que foram previamente estabelecidas e permitem que os nós saibam com quais outros nós podem estabelecer conexões;
-									<br>
-									<strong><italic>Raw Public Key</italic> :</strong> é um par assimétrico de chaves sem certificado. O dispositivo também tem uma identificação calculada pela chave e uma lista de identidade dos nós com os quais pode se comunicar;
-									<br>
-									<strong><italic>Certificates</italic> :</strong> adiciona um certificado X.509 ao par assimétrico de chaves e usa <italic>Trusted Third Party</italic> (TTP) para validar a autenticidade dos nós.
+									Usa-se mensagens CON quando requer confiabilidade das mensagens.
+									<br> 
+									Mensagens NON são usadas quando não for requerida transmissão confiável. Por exemplo, mensagens que são repetidas
+									regularmente em aplicações, assim como leituras repetidas de um sensor.
 								</p>
 							</div>
 							<header>
 								<h3>
-									4) O que é ataque por amplificação no CoAP?
+									4) Quais são os quatro tipos de mensagens utilizadas no protocolo CoAP?
 								</h3>
 							</header>
 							<label for="toggle-4" class="botaoResposta">
@@ -134,7 +131,16 @@
 							<input type="checkbox" id="toggle-4">
 							<div id="mostra-4">
 								<p>
-									As respostas são, geralmente, maiores que as requisições, facilitando ataques na rede por um forçado aumento gerado nas respostas.
+									<strong>Confirmável (CON) :</strong> Mensagens que precisam ser confirmadas.
+									<br>
+									<strong>Não Confirmável (NON) :</strong> Mensagens que não necessitam confirmação.
+									</li>
+									<br>
+									<strong><italic>Acknowledgement</italic> (ACK) :</strong> Confirma que uma mensagem confirmável chegou.
+									<br>
+									<strong><italic>Reset</italic> (RST) :</strong> Indica que uma mensagem específica (Confirmável ou
+									Não Confirmável) foi recebida, porém não pôde ser processada.
+									<br>
 								</p>
 							</div>
 							<header>

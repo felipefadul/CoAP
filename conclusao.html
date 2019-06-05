@@ -72,7 +72,7 @@
 							<ul class="style1">
 								<li class="first"><span class="fa fa-check"></span><a href="#4.1">4.1 Vantagens e limitações</a></li>
 								<li><span class="fa fa-check"></span><a href="#4.2">4.2 Alternativa ao CoAP</a></li>
-								<li><span class="fa fa-check"></span><a href="#4.3">4.3 Comparação de performance com MQTT</a></li>
+								<li><span class="fa fa-check"></span><a href="#4.3">4.3 Comparação de performance entre CoAP e MQTT</a></li>
 								<li><span class="fa fa-check"></span><a href="#4.4">4.4 Perspectiva atual e futura do CoAP em IoT</a></li>
 							</ul>
 						</section>
@@ -102,8 +102,25 @@
 							<figure>
 								<img src="images/tabela2.png" alt="Ataques no CoAP"/>
 								<figcaption><span>Tabela 2:</span> Tipos de ataque no CoAP.</figcaption>
-								<figcaption class="sublegenda">Reproduzido de (ESPÍRITO SANTO, ORDOÑEZ  e RIBEIRO, 2018, p. 6).</figcaption>
+								<figcaption class="sublegenda">Reproduzido de W. E. Santo, E. D. Ordoñez, A. Ribeiro. Uma revisão sistemática
+									sobre a Segurança nos Protocolos de Comunicação para Internet das Coisas, página 6, 2018.
+								</figcaption>
 							</figure>
+							<p><strong>Limitações do CoAP:</strong></p>
+							<li>
+								CoAP tem problemas na comunicação com dispositivos que estão atrás de uma NAT (<italic>Network Address Translation</italic>).
+							</li>
+							<br>
+							<li>
+								Mensagem não confiável (<italic>message unreliability</italic>): UDP não garante que datagramas foram entregues.
+								Embora empregue o método CON-ACK para suas mensagens, isso não verifica se foi recebido em sua totalidade e decodificado
+								corretamente.
+							</li>
+							<br>
+							<li>
+								Não é criptografado e depende de DTLS para prover segurança.
+							</li>
+							<br>
 							<header>
 								<h2><a name="4.2">4.2 Alternativa ao CoAP</a></h2>
 							</header>
@@ -125,7 +142,7 @@
 								todas as mensagens enviadas para tais tópicos.
 							</p>
 							<header>
-								<h2><a name="4.3">4.3 Comparação de performance com MQTT</a></h2>
+								<h2><a name="4.3">4.3 Comparação de performance entre CoAP e MQTT</a></h2>
 							</header>
 							<p>
 								Ambos os protocolos citados são largamente utilizados na indústria tecnológica, porém eles possuem diferenças cruciais

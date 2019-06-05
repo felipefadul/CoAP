@@ -91,6 +91,7 @@
 							<figure>
 								<img src="images/CamadasAbstratasCoAP.png" alt="Camadas do CoAP"/>
 								<figcaption><span>Figura 2:</span> Camadas Abstratas do CoAP.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
 							</figure>
 							<header>
 								<h2><a name="2.2">2.2 Modelo e fluxo de mensagens</a></h2>
@@ -139,10 +140,10 @@
 								responde com uma mensagem <italic>Reset</italic> (RST) no lugar de <italic>Acknowledgement</italic> (ACK).
 							</p>
 							<p>
-								Uma mensagem que não requer transmissão confiável (por exemplo, uma única medida fora de
-								um fluxo de dados de um sensor) pode ser enviada como uma mensagem não confirmável (NON). Estas não são
-								reconhecidas, mas ainda têm um ID de mensagem para detecção duplicada. Quando um destinatário não for capaz de
-								processar uma mensagem não confirmável, pode-se responder com uma mensagem de <italic>Reset</italic> (RST).
+								Uma mensagem que não requer transmissão confiável (por exemplo, mensagens que são repetidas regularmente
+								em aplicações, assim como leituras repetidas de um sensor) pode ser enviada como uma mensagem não confirmável (NON).
+								Estas não são reconhecidas, mas ainda têm um ID de mensagem para detecção duplicada. Quando um destinatário não for
+								capaz de processar uma mensagem não confirmável, pode-se responder com uma mensagem de <italic>Reset</italic> (RST).
 							</p>
 							<figure>
 								<img src="images/TransmissaoNaoConfiavel.png" alt="Mensagem Não Confirmável"/>
@@ -166,7 +167,7 @@
 							</p>
 							<figure>
 								<img src="images/fig1mensagem.png" alt="Respostas Piggybacked"/>
-								<figcaption><span>Figura 5:</span> Dois <italic>requests</italic>&nbsp; GET com respostas piggybacked.</figcaption>
+								<figcaption><span>Figura 5:</span> Dois <italic>requests</italic>&nbsp; GET com respostas <italic>piggybacked</italic>.</figcaption>
 								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
 							</figure>	
 							<p>

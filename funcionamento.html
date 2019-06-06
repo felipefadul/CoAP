@@ -50,8 +50,9 @@
 					<ul>
 						<li><a href="index.html">Fundamentação Teórica</a></li>
 						<li class="active"><a href="funcionamento.html">Funcionamento do CoAP</a></li>
-						<li><a href="aplicacoes.html">Aplicações e razões para utilizá-lo</a></li>
+						<li><a href="aplicacoes.html">Aplicações</a></li>
 						<li><a href="conclusao.html">Conclusão</a></li>
+						<br>
 						<li><a href="perguntas.html">Perguntas</a></li>
 						<li><a href="referencias.html">Referências bibliográficas</a></li>
 					</ul>
@@ -69,21 +70,31 @@
 								<h2>2) Funcionamento do CoAP</h2>
 							</header>
 							<ul class="style1">
-								<li class="first"><span class="fa fa-check"></span><a href="#2.1">2.1 Modelo e fluxo de mensagens</a></li>
-								<li><span class="fa fa-check"></span><a href="#2.2">2.2 Intermediários e Cache</a></li>
-								<li><span class="fa fa-check"></span><a href="#2.3">2.3 Formato da mensagem</a></li>
-								<li><span class="fa fa-check"></span><a href="#2.4">2.4 Correlação de mensagens e desduplicação</a></li>
-								<li><span class="fa fa-check"></span><a href="#2.5">2.5 Controle de congestionamento</a></li>
-								<li><span class="fa fa-check"></span><a href="#2.6">2.6 Protocolo de segurança para CoAP</a></li>
+								<li class="first"><span class="fa fa-check"></span><a href="#2.1">2.1 Estrutura</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.2">2.2 Modelo e fluxo de mensagens</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.3">2.3 Modelo requisição/resposta</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.4">2.4 Intermediários e Cache</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.5">2.5 Formato da mensagem</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.6">2.6 Correlação de mensagens e desduplicação</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.7">2.7 Controle de congestionamento</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.8">2.8 Parâmetros de Transmissão</a></li>
+								<li><span class="fa fa-check"></span><a href="#2.9">2.9 Protocolo de segurança para CoAP</a></li>
 							</ul>
 						</section>
 					</div>
 
-
 					<div class="9u skel-cell-important">
 						<section id="content">
 							<header>
-								<h2><a name="2.1">2.1 Modelo e fluxo de mensagens</a></h2>
+								<h2><a name="2.1">2.1 Estrutura</a></h2>
+							</header>
+							<figure>
+								<img src="images/CamadasAbstratasCoAP.png" alt="Camadas do CoAP"/>
+								<figcaption><span>Figura 2:</span> Camadas Abstratas do CoAP.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
+							<header>
+								<h2><a name="2.2">2.2 Modelo e fluxo de mensagens</a></h2>
 							</header>
 							<p>
 								O modelo de mensagens do CoAP é baseado na troca de mensagens de ponta a ponta através do
@@ -91,7 +102,7 @@
 							</p>
 							<li>
 								<strong>Confirmável (CON) :</strong> Mensagens que precisam ser confirmadas. Quando
-								nenhum pacote é perdido, cada mensagem desse tipo resulta em uma mensagem do tipo 
+								nenhum pacote é perdido, cada mensagem deste tipo resulta em uma mensagem do tipo 
 								<italic>acknowledgement</italic> ou do tipo <italic>reset</italic>.
 							</li>
 							<br>
@@ -119,24 +130,67 @@
 								confirmável é retransmitida usando um tempo limite padrão entre retransmissões,
 								até o destinatário, enviando uma mensagem de confirmação (ACK) com o mesmo ID de mensagem.
 							</p>
+							<figure>
+								<img src="images/TransmissaoMensagemConfiavel.png" alt="Mensagem Confirmável"/>
+								<figcaption><span>Figura 3:</span> Transmissão de Mensagem Confirmável (CON).</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>							
 							<p>
 								Quando um destinatário não é capaz de processar uma mensagem como confirmável, ele
 								responde com uma mensagem <italic>Reset</italic> (RST) no lugar de <italic>Acknowledgement</italic> (ACK).
 							</p>
 							<p>
-								Uma mensagem que não requer transmissão confiável (por exemplo, uma única medida fora de
-								um fluxo de dados de um sensor) pode ser enviada como uma mensagem não confirmável (NON). Estas não são
-								reconhecidas, mas ainda têm um ID de mensagem para detecção duplicada. Quando um destinatário não for capaz de
-								processar uma mensagem não confirmável, pode-se responder com uma mensagem de <italic>Reset</italic> (RST).
+								Uma mensagem que não requer transmissão confiável (por exemplo, mensagens que são repetidas regularmente
+								em aplicações, assim como leituras repetidas de um sensor) pode ser enviada como uma mensagem não confirmável (NON).
+								Estas não são reconhecidas, mas ainda têm um ID de mensagem para detecção duplicada. Quando um destinatário não for
+								capaz de processar uma mensagem não confirmável, pode-se responder com uma mensagem de <italic>Reset</italic> (RST).
 							</p>
+							<figure>
+								<img src="images/TransmissaoNaoConfiavel.png" alt="Mensagem Não Confirmável"/>
+								<figcaption><span>Figura 4:</span> Transmissão de Mensagem Não Confirmável (NON).</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>	
 							<p>
 								Como o CoAP é executado sobre UDP, que é um protocolo não confiável, também suporta o
-								uso dos endereços <italic>multicast</italic> IP de destino, permitindo solicitações
-								<italic>multicast</italic> CoAP, como precaução para evitar o congestionamento da resposta.
+								uso dos endereços <italic>multicast</italic>&nbsp; IP de destino, permitindo solicitações
+								<italic>multicast</italic>&nbsp; CoAP, como precaução para evitar o congestionamento da resposta.
 							</p>
-
 							<header>
-								<h2><a name="2.2">2.2 Intermediários e Cache</a></h2>
+								<h2><a name="2.3">2.3 Modelo requisição/resposta</a></h2>
+							</header>
+							<p>
+								Um <italic>request</italic> (requisição) pode ser enviado através de uma mensagem CON (confirmável) ou
+								NON (não confirmável), e, se estiver imediatamente disponível, deve ser enviada uma mensagem ACK para a
+								mensagem CON. Isso é a chamada resposta <italic>piggybacked</italic>.
+								(Não há motivo para enviar um ACK separado para uma resposta <italic>piggybacked</italic>, já que o cliente
+								retransmitirá o <italic>request</italic>&nbsp; caso a mensagem ACK seja perdida).
+							</p>
+							<figure>
+								<img src="images/fig1mensagem.png" alt="Respostas Piggybacked"/>
+								<figcaption><span>Figura 5:</span> Dois <italic>requests</italic>&nbsp; GET com respostas <italic>piggybacked</italic>.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>	
+							<p>
+								Caso o servidor não esteja apto a responder imediatamente um <italic>request</italic> de uma mensagem CON, ele
+								simplesmente responde com um ACK vazio. Dessa forma o cliente sabe que pode parar de retransmitir o
+								<italic>request</italic>. Quando a resposta estiver pronta para ser enviada, o servidor envia uma nova mensagem CON.
+							</p>
+							<figure>
+								<img src="images/fig2mensagem.png" alt="GET com respostas separada"/>
+								<figcaption><span>Figura 6:</span> Um <italic>request</italic>&nbsp; GET com resposta separada.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
+							<p>
+								Caso um <italic>request</italic> seja enviado através de uma mensagem NON, então a resposta é enviada usando uma
+								nova mensagem NON.
+							</p>	
+							<figure>
+								<img src="images/fig3mensagem.png" alt="Request e resposta NON"/>
+								<figcaption><span>Figura 7:</span> Um <italic>request</italic> e uma resposta, ambos NON.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
+							<header>
+								<h2><a name="2.4">2.4 Intermediários e Cache</a></h2>
 							</header>
 							<p>
 								O protocolo suporta o armazenamento de respostas com a finalidade de atender de forma
@@ -160,10 +214,15 @@
 								("<italic>cross-proxy</italic>"), o qual converte o método ou código de resposta, tipo de mídia
 								e opções para o recurso HTTP correspondente.
 							</p>
-
+							
 							<header>
-								<h2><a name="2.3">2.3 Formato da mensagem</a></h2>
+								<h2><a name="2.5">2.5 Formato da mensagem</a></h2>
 							</header>
+							<figure>
+								<img src="images/CabecalhoCoAP.png" alt="Cabeçalho do CoAP"/>
+								<figcaption><span>Figura 8:</span> Cabeçalho do CoAP.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
 							<p>
 								CoAP é baseado na troca de mensagens compactadas que, por padrão, são transportadas pelo
 								UDP (ou seja, cada mensagem do CoAP ocupa uma seção de dados de um datagrama UDP).
@@ -202,7 +261,7 @@
 								significantes) e 5 <italic>bits</italic> para detalhes (<italic>bits</italic> menos significantes).
 								A classe pode indicar uma requisição (0), resposta de sucesso (2), resposta de erro do
 								cliente (4), ou resposta de erro do servidor (5). (Todas as outras classes são
-								reservadas.) Em casos especiais no código 0.00 indica uma mensagem vazia.
+								reservadas). Em casos especiais no código 0.00 indica uma mensagem vazia.
 							</li>
 							<br>
 							<li>
@@ -214,14 +273,15 @@
 							<br>
 
 							<header>
-								<h2><a name="2.4">2.4 Correlação de mensagens e desduplicação</a></h2>
+								<h2><a name="2.6">2.6 Correlação de mensagens e desduplicação</a></h2>
 							</header>
 							<p>
 								Uma mensagem ACK ou RST é relacionada com uma mensagem CON e NON através de uma mensagem
 								de ID junto com o endereço do nó correspondente.
 								A mensagem ID é gerada pelo transmissor de uma mensagem CON ou NON e incluída no cabeçalho do
 								CoAP. A mensagem ID deve ecoar um ACK ou RST do cliente.
-								Além disso, a mesma mensagem ID deve esperar o <italic>EXCHANGE_LIFETIME</italic> terminar para ser
+								Além disso, a mesma mensagem ID deve esperar o <italic>Exchange Lifetime</italic>
+								(tempo de espera pelo ACK após uma mensagem CON ser enviada) terminar para ser
 								reenviada em uma comunicação com o mesmo nó.
 							</p>
 							<p>
@@ -230,7 +290,7 @@
 							</p>
 
 							<header>
-								<h2><a name="2.5">2.5 Controle de congestionamento</a></h2>
+								<h2><a name="2.7">2.7 Controle de congestionamento</a></h2>
 							</header>
 							<p>
 								Com o intuito de não causar congestionamento, clientes (incluindo <italic>proxies</italic>) DEVEM
@@ -244,27 +304,69 @@
 								apenas uma interação excepcional). O valor padrão de <italic>NSTART</italic> para essa
 								especificação é de 1.
 							</p>
+							<p>
+								Depois de esgotado o tempo de recebimento do ACK (<italic>Exchange Lifetime</italic>),
+								o cliente deixa de esperar a resposta para a CON enviada. Otimizações de controle de congestionamento
+								adicionais permitem definir condições de parada de espera do ACK, de modo que um <italic>endpoint</italic>
+								não inunde o fluxo da rede no envio para outro nó de extremidade que não responde.
+							</p>
 
 							<header>
-								<h2><a name="2.6">2.6 Protocolo de segurança para CoAP</a></h2>
+								<h2><a name="2.8">2.8 Parâmetros de Transmissão</a></h2>
 							</header>
 							<p>
-								CoAP usa <italic>Datagram Transport Layer Security</italic> (DTLS) para segurança.
-								O protocolo DTLS de segurança de CoAP é denominado CoAPs. DTLS é baseado em PSK, RPK e certificado de
-								segurança. Esses são os três principais elementos quando consideramos segurança,
-								integridade, autenticação e confidencialidade. DTLS pode realizar todos esses. DTLS
-								resolve dois problemas: reordenação e perda de pacotes. Ele adiciona três
-								implementações:
-								<br>&emsp;- Retransmissão de pacotes
-								<br>&emsp;- Assigning sequence number dentro do handshake
-								<br>&emsp;- Detecção de <italic>replay</italic>
+								A transmissão de mensagens é controlada pelos parâmetros especificados na tabela a seguir:
+							</p>
+							<figure>
+								<img src="images/tabela1.png" alt="Parâmetros do CoAP"/>
+								<figcaption><span>Tabela 1:</span> Parâmetros do Protocolo CoAP.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
+
+							<header>
+								<h2><a name="2.9">2.9 Protocolo de segurança para CoAP</a></h2>
+							</header>
+							<p>
+								Assim como para HTTP existe um protocolo de segurança para transporte de mensagens
+								(TLS - <italic>Transport Layer Security</italic>) que atua sobre o TCP, o CoAP também é
+								protegido através do Datagram TLS (DTLS) que atua sobre o UDP, chamado CoAPs.
+								Na prática, DTLS é TLS com configurações para lidar com a natureza não confiável do transporte de mensagens UDP.
+							</p>
+							<figure>
+								<img src="images/DTLS.png" alt="Camada com DTLS"/>
+								<figcaption><span>Figura 9:</span> Pilha das camadas com inclusão do CoAP protegido pelo DTLS.</figcaption>
+								<figcaption class="sublegenda">Reproduzido de RFC 7252.</figcaption>
+							</figure>
+							<p><strong>Modos de segurança:</strong></p>
+							<li>
+								<strong><italic>NoSec</italic> :</strong> não há segurança na camada de transporte. É o único modo no qual o DTLS está desabilitado,
+								deixando a segurança, caso precise, para as camadas de níveis mais baixos.
+							</li>
+							<br>
+							<li>
+								<strong><italic>Pre-shared key</italic> (PSKs) :</strong> conjunto de chaves que foram previamente estabelecidas
+								e permitem que os nós saibam quais os outros que podem estabelecer conexões.
+							</li>
+							<br>
+							<li>
+								<strong><italic>Raw Public Key</italic> :</strong> é um par assimétrico de chaves sem certificado.
+								O dispositivo também tem uma identificação calculada pela chave e uma lista de identidade
+								dos nós com os quais pode se comunicar.
+							</li>
+							<br>
+							<li>
+								<strong><italic>Certificates</italic> :</strong> adiciona um certificado X.509 ao par assimétrico de chaves
+								e usa <italic>Trusted Third Party</italic> (TTP) para validar a autenticidade dos nós.
+							</li>
+							<br>
+							<p>
+									Ambos os nós da conexão devem ser clientes DTLS. A sessão deve ser iniciada na porta adequada e deve-se primeiro
+									estabelecer a conexão (através do <italic>handshake</italic>) para então começar a transmitir mensagens.
 							</p>
 							<p>
-								Ao contrário de protocolos de segurança da camada de rede, DTLS em camadas de aplicação
-								protege comunicações fim a fim. Nenhuma proteção de comunicações fim a fim vai tornar
-								mais fácil para atacantes terem acesso a todo o dado em texto que passa por um nó
-								comprometido. DTLS também evita problemas de criptografia de <italic>overhead</italic>
-								que ocorre em protocolos de segurança aplicados em camadas mais baixas.
+									Além disso, também é importante que durante uma interação entre cliente e servidor usando DTLS,
+									o <italic>request</italic> de um cliente, de qualquer tipo, deve conter sessão,  <italic>timestamp</italic>
+									e <italic>Message ID</italic> correspondentes. O mesmo vale para a resposta do <italic>request</italic>.
 							</p>
 
 						</section>
@@ -347,7 +449,10 @@
 								<h2>Contato</h2>
 							</header>
 							<div style="text-align: justify">
-								<p>Fique à vontade para comentar sobre o trabalho enviando-nos um email.</p>
+								<p>
+										Fique à vontade para comentar sobre o trabalho enviando-nos um e-mail ou acessando-o no 
+										<a href="https://github.com/felipefadul/CoAP" target="_blank">GitHub</a>.
+								</p>
 							</div>
 						</section>
 					</div>

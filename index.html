@@ -50,8 +50,9 @@
 					<ul>
 						<li class="active"><a href="index.html">Fundamentação Teórica</a></li>
 						<li><a href="funcionamento.html">Funcionamento do CoAP</a></li>
-						<li><a href="aplicacoes.html">Aplicações e razões para utilizá-lo</a></li>
+						<li><a href="aplicacoes.html">Aplicações</a></li>
 						<li><a href="conclusao.html">Conclusão</a></li>
+						<br>
 						<li><a href="perguntas.html">Perguntas</a></li>
 						<li><a href="referencias.html">Referências bibliográficas</a></li>
 					</ul>
@@ -125,16 +126,16 @@
 								características ideais para os sistemas IoT, dado que seus pacotes podem ocupar milhares
 								de <italic>bytes</italic>. A IoT é composta de redes restritas, como a 6LoWPAN (<italic>IPv6 over Low-Power 
 								Wireless Personal Area Networks</italic>) e nós restritos, executados em microcontroladores de 8
-								<italic>bits</italic> com pequenas quantidades de memória ROM (Read Only Memory)
+								<italic>bits</italic> com pequenas quantidades de memória ROM (<italic>Read Only Memory</italic>)
 								e RAM (<italic>Random Access Memory</italic>).
 							</p>
 							<p>
-								O CoAP, “<italic>Constrained Application </italic>”, ou, em uma tradução aproximada, “Protocolo
+								O CoAP, “<italic>Constrained Application Protocol</italic>”, ou, em uma tradução aproximada, “Protocolo
 								de Aplicação Restrita”, foi desenvolvido pelo grupo de trabalho CoRE (<italic>Constrained
 								Restful Environments</italic>) do IETF. Ele é bom em ambientes com recursos limitados:
 								dispositivos com energia limitada, enlaces com baixa largura de banda, redes
 								congestionadas ou com perdas. Em redes congestionadas, CoAP/UDP pode funcionar, porém o
-								MQTT/TCP pode não ser nem capaz de administrar um <italic>handshake</italic> completo.
+								MQTT/TCP, alternativa ao CoAP, pode não ser nem capaz de administrar um <italic>handshake</italic> completo.
 								CoAP pode ser usado onde <italic>broadcast</italic> e <italic>multicast</italic> são necessários.
 							</p>
 							<p>
@@ -142,7 +143,7 @@
 								"<italic>report only</italic>". Uma vez implantado, o dispositivo apenas reporta dados de volta para o
 								servidor. O CoAP é adequado para redes de comunicações domésticas, posto que ferramentas
 								informativas, equipamentos de controle e de comunicação em redes de Casas Inteligentes
-								precisam ter baixo custo e serem leves.
+								precisam ser leves e ter baixo custo.
 							</p>
 							<p>
 								Quando implantado em redes <italic>third-party</italic> (coletora de dados de terceiros) onde não temos
@@ -171,7 +172,7 @@
 								de UDP é mais leve e fácil de ser implementado em microcontroladores. Sua comunicação é feita usando
 								datagramas sem conexão. O cabeçalho do CoAP é de apenas 4 <italic>bytes</italic>, além de também poder
 								usar características do <italic>broadcast</italic> e <italic>multicast</italic> do UDP.
-								Devido ao uso de datagramas, SMS e outros protocolos baseados em pacotes também podem ser empregados.
+								Devido ao uso de datagramas e SMS, outros protocolos baseados em pacotes também podem ser empregados.
 								CoAP usa um <italic>subset</italic> de tipos do MIME (<italic>Multi-Purpose Internet Mail Extensions</italic>)
 								e códigos de resposta do HTTP.
 							</p>
@@ -185,6 +186,10 @@
 								Como não é utilizado o protocolo TCP, o CoAP cuida dos ACKs das mensagens, tentativas de
 								controle de congestionamento e detecção dupla.
 							</p>
+							<figure>
+								<img src="images/ArquiteturaCoAP.png" alt="Arquitetura CoAP"/>
+								<figcaption><span>Figura 1:</span> Arquitetura do Protocolo da Camada de Aplicação CoAP.</figcaption>
+							</figure>
 						</section>
 						<div style="text-align: center">
 							<a href="#" class="button">Topo</a>
@@ -264,7 +269,10 @@
 								<h2>Contato</h2>
 							</header>
 							<div style="text-align: justify">
-								<p>Fique à vontade para comentar sobre o trabalho enviando-nos um email.</p>
+								<p>
+									Fique à vontade para comentar sobre o trabalho enviando-nos um e-mail ou acessando-o no 
+									<a href="https://github.com/felipefadul/CoAP" target="_blank">GitHub</a>.
+								</p>
 							</div>
 						</section>
 					</div>

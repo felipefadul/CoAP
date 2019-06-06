@@ -50,8 +50,9 @@
 					<ul>
 						<li><a href="index.html">Fundamentação Teórica</a></li>
 						<li><a href="funcionamento.html">Funcionamento do CoAP</a></li>
-						<li><a href="aplicacoes.html">Aplicações e razões para utilizá-lo</a></li>
+						<li><a href="aplicacoes.html">Aplicações</a></li>
 						<li><a href="conclusao.html">Conclusão</a></li>
+						<br>
 						<li class="active"><a href="perguntas.html">Perguntas</a></li>
 						<li><a href="referencias.html">Referências bibliográficas</a></li>
 					</ul>
@@ -68,46 +69,98 @@
 							<header>
 								<h2>Perguntas</h2>
 							</header>
-							<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl
-								risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta
-								lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis,
-								ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem
-								urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Consectetuer
-								adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque.
-								Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis
-								libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit
-								interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi.
-								Pellentesque adipiscing purus ac magna. Pellentesque habitant morbi tristique senectus
-								et netus et malesuada fames ac turpis egestas. Donec leo. Vivamus fermentum nibh in
-								augue. Praesent a lacus at urna congue rutrum. Nulla enim eros, porttitor eu, tempus id,
-								varius non, nibh. </p>
-							<p>Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet,
-								magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id
-								lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla
-								blandit libero, in blandit augue justo quis nisl. Fusce mattis viverra elit. Fusce quis
-								tortor. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum.
-								Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse
-								dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget,
-								tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus.
-								Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo.
-								Consectetuer adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus.
-								Etiam neque. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend.
-								Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit
-								nulla suscipit interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et,
-								wisi. Pellentesque adipiscing purus ac magna. </p>
-							<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl
-								risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta
-								lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis,
-								ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem
-								urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Consectetuer
-								adipiscing elit. Nam pede erat, porta eu, lobortis eget, tempus et, tellus. Etiam neque.
-								Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis
-								libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit
-								interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi.
-								Pellentesque adipiscing purus ac magna. Pellentesque habitant morbi tristique senectus
-								et netus et malesuada fames ac turpis egestas. Donec leo. Vivamus fermentum nibh in
-								augue. Praesent a lacus at urna congue rutrum. Nulla enim eros, porttitor eu, tempus id,
-								varius non, nibh. </p>
+							<header>
+								<h3>
+									1) Cite três diferenças entre HTTP e COAP.
+								</h3>
+							</header>
+							<label for="toggle-1" class="botaoResposta">
+								Resposta
+							</label>
+							<input type="checkbox" id="toggle-1">
+							<div id="mostra-1">
+								<p>
+									<strong>CoAP:</strong> utiliza UDP como protocolo de transporte; pode transmitir mensagens de forma síncrona ou assíncrona; possui cabeçalho pequeno e limitado.
+									<br>
+									<strong>HTTP:</strong> utiliza TCP como protocolo de transporte; é síncrono (precisa estar com a conexão estabelecida para haver troca de mensagens); possui cabeçalho não limitado.
+								</p>
+							</div>
+							<header>
+								<h3>
+									2) Quais são os atributos do CoAP que facilitam na identificação de recursos? 
+								</h3>
+							</header>
+							<label for="toggle-2" class="botaoResposta">
+								Resposta
+							</label>
+							<input type="checkbox" id="toggle-2">
+							<div id="mostra-2">
+								<p>
+									<strong><italic>Resource Type</italic> :</strong> responsável por identificar a função de um determinado recurso (temperatura, luminosidade, impressora, etc.);
+									<br>
+									<strong><italic>Interface Description</italic> :</strong> indica os métodos que podem ser utilizados para a comunicação com esse recurso (GET, POST, etc);
+									<br>
+									<strong><italic>Context Type</italic> :</strong> representa o formato dos dados fornecidos pelo recurso.
+								</p>
+							</div>
+							<header>
+								<h3>
+									3) Qual a diferença entre o uso de mensagens CON e mensagens NON?
+								</h3>
+							</header>
+							<label for="toggle-3" class="botaoResposta">
+								Resposta
+							</label>
+							<input type="checkbox" id="toggle-3">
+							<div id="mostra-3">
+								<p>
+									Usa-se mensagens CON quando requer confiabilidade das mensagens.
+									<br> 
+									Mensagens NON são usadas quando não for requerida transmissão confiável. Por exemplo, mensagens que são repetidas
+									regularmente em aplicações, assim como leituras repetidas de um sensor.
+								</p>
+							</div>
+							<header>
+								<h3>
+									4) Quais são os quatro tipos de mensagens utilizadas no protocolo CoAP?
+								</h3>
+							</header>
+							<label for="toggle-4" class="botaoResposta">
+								Resposta
+							</label>
+							<input type="checkbox" id="toggle-4">
+							<div id="mostra-4">
+								<p>
+									<strong>Confirmável (CON) :</strong> Mensagens que precisam ser confirmadas.
+									<br>
+									<strong>Não Confirmável (NON) :</strong> Mensagens que não necessitam confirmação.
+									</li>
+									<br>
+									<strong><italic>Acknowledgement</italic> (ACK) :</strong> Confirma que uma mensagem confirmável chegou.
+									<br>
+									<strong><italic>Reset</italic> (RST) :</strong> Indica que uma mensagem específica (Confirmável ou
+									Não Confirmável) foi recebida, porém não pôde ser processada.
+									<br>
+								</p>
+							</div>
+							<header>
+								<h3>
+									5) Quais principais diferenças entre o CoAP e o MQTT?
+								</h3>
+							</header>
+							<label for="toggle-5" class="botaoResposta">
+								Resposta
+							</label>
+							<input type="checkbox" id="toggle-5">
+							<div id="mostra-5">
+								<p>
+									CoAP usa UDP, enquanto MQTT atua em cima de TCP.
+									<br>
+									CoAP é orientado <italic>request-response</italic>. Já o MQTT é orientado <italic>publish-subscribe</italic>.
+									<br>
+									Enquanto CoAP estabelece conexões M2M entre cliente e servidor, o MQTT é baseado na arquitetura <italic>client-broker</italic>.
+								</p>
+							</div>
 						</section>
 						<div style="text-align: center">
 							<a href="conclusao.html" class="button" style="float: left">&lt&lt Anterior</a>
@@ -187,7 +240,10 @@
 								<h2>Contato</h2>
 							</header>
 							<div style="text-align: justify">
-								<p>Fique à vontade para comentar sobre o trabalho enviando-nos um email.</p>
+								<p>
+										Fique à vontade para comentar sobre o trabalho enviando-nos um e-mail ou acessando-o no 
+										<a href="https://github.com/felipefadul/CoAP" target="_blank">GitHub</a>.
+								</p>
 							</div>
 						</section>
 					</div>

@@ -152,8 +152,8 @@
 							</figure>	
 							<p>
 								Como o CoAP é executado sobre UDP, que é um protocolo não confiável, também suporta o
-								uso dos endereços <italic>multicast</italic> IP de destino, permitindo solicitações
-								<italic>multicast</italic> CoAP, como precaução para evitar o congestionamento da resposta.
+								uso dos endereços <italic>multicast</italic>&nbsp; IP de destino, permitindo solicitações
+								<italic>multicast</italic>&nbsp; CoAP, como precaução para evitar o congestionamento da resposta.
 							</p>
 							<header>
 								<h2><a name="2.3">2.3 Modelo requisição/resposta</a></h2>
@@ -163,7 +163,7 @@
 								NON (não confirmável), e, se estiver imediatamente disponível, deve ser enviada uma mensagem ACK para a
 								mensagem CON. Isso é a chamada resposta <italic>piggybacked</italic>.
 								(Não há motivo para enviar um ACK separado para uma resposta <italic>piggybacked</italic>, já que o cliente
-								retransmitirá o <italic>request</italic> caso a mensagem ACK seja perdida).
+								retransmitirá o <italic>request</italic>&nbsp; caso a mensagem ACK seja perdida).
 							</p>
 							<figure>
 								<img src="images/fig1mensagem.png" alt="Respostas Piggybacked"/>
@@ -261,7 +261,7 @@
 								significantes) e 5 <italic>bits</italic> para detalhes (<italic>bits</italic> menos significantes).
 								A classe pode indicar uma requisição (0), resposta de sucesso (2), resposta de erro do
 								cliente (4), ou resposta de erro do servidor (5). (Todas as outras classes são
-								reservadas.) Em casos especiais no código 0.00 indica uma mensagem vazia.
+								reservadas). Em casos especiais no código 0.00 indica uma mensagem vazia.
 							</li>
 							<br>
 							<li>
@@ -280,7 +280,8 @@
 								de ID junto com o endereço do nó correspondente.
 								A mensagem ID é gerada pelo transmissor de uma mensagem CON ou NON e incluída no cabeçalho do
 								CoAP. A mensagem ID deve ecoar um ACK ou RST do cliente.
-								Além disso, a mesma mensagem ID deve esperar o <italic>EXCHANGE_LIFETIME</italic> terminar para ser
+								Além disso, a mesma mensagem ID deve esperar o <italic>Exchange Lifetime</italic>
+								(tempo de espera pelo ACK após uma mensagem CON ser enviada) terminar para ser
 								reenviada em uma comunicação com o mesmo nó.
 							</p>
 							<p>

@@ -128,10 +128,6 @@
 		font-size: 1em;
 		color: #323338;
 	}
-
-	header .byline
-	{
-	}
 	
 /*********************************************************************************/
 /* Icons                                                                         */
@@ -143,10 +139,6 @@
 	{
 		text-decoration: none;
 	}
-
-		.fa.solo
-		{
-		}
 		
 			.fa.solo span
 			{
@@ -636,9 +628,6 @@ ul.style3 .linkButton {
 	font-family: 'Abel', sans-serif;
 	font-size: 14px;
 	color: #FFFFFF;
-}
-
-ul.style3 .linkButton b {
 }
 
 ul.style3 .linkButton a {
